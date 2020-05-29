@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="7"
-  DTS:VersionGUID="{92F361E5-8CDF-4364-8A0F-C645C15FDB65}">
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{7E8C89CC-2B4E-4E5A-968A-ECCA9FD31619}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -57,27 +57,6 @@
                   name="Entrada de columna derivada">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\precio compras cliente por dia\Columna derivada.Inputs[Entrada de columna derivada].Columns[Folio]"
-                      cachedDataType="r8"
-                      cachedName="Folio"
-                      lineageId="Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Folio]" />
-                    <inputColumn
-                      refId="Package\precio compras cliente por dia\Columna derivada.Inputs[Entrada de columna derivada].Columns[Fecha de orden]"
-                      cachedDataType="date"
-                      cachedName="Fecha de orden"
-                      lineageId="Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Fecha de orden]" />
-                    <inputColumn
-                      refId="Package\precio compras cliente por dia\Columna derivada.Inputs[Entrada de columna derivada].Columns[Num# cliente]"
-                      cachedDataType="r8"
-                      cachedName="Num# cliente"
-                      lineageId="Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Num# cliente]" />
-                    <inputColumn
-                      refId="Package\precio compras cliente por dia\Columna derivada.Inputs[Entrada de columna derivada].Columns[Nombre cliente]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="Nombre cliente"
-                      lineageId="Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Nombre cliente]" />
-                    <inputColumn
                       refId="Package\precio compras cliente por dia\Columna derivada.Inputs[Entrada de columna derivada].Columns[Tarifa de envío]"
                       cachedDataType="cy"
                       cachedName="Tarifa de envío"
@@ -100,50 +79,6 @@
                   synchronousInputId="Package\precio compras cliente por dia\Columna derivada.Inputs[Entrada de columna derivada]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\precio compras cliente por dia\Columna derivada.Outputs[Salida de columna derivada].Columns[Columna derivada 1]"
-                      dataType="cy"
-                      errorOrTruncationOperation="Cálculo"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\precio compras cliente por dia\Columna derivada.Outputs[Salida de columna derivada].Columns[Columna derivada 1]"
-                      name="Columna derivada 1"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión de columna derivada"
-                          name="Expression">#{Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Tarifa de envío]}</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión descriptiva de columna derivada"
-                          expressionType="Notify"
-                          name="FriendlyExpression">[Tarifa de envío]</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\precio compras cliente por dia\Columna derivada.Outputs[Salida de columna derivada].Columns[Columna derivada 2]"
-                      dataType="cy"
-                      errorOrTruncationOperation="Cálculo"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\precio compras cliente por dia\Columna derivada.Outputs[Salida de columna derivada].Columns[Columna derivada 2]"
-                      name="Columna derivada 2"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión de columna derivada"
-                          name="Expression">#{Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Ingresos]}</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión descriptiva de columna derivada"
-                          expressionType="Notify"
-                          name="FriendlyExpression">Ingresos</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
                       refId="Package\precio compras cliente por dia\Columna derivada.Outputs[Salida de columna derivada].Columns[Total venta unica]"
                       dataType="cy"
                       errorOrTruncationOperation="Cálculo"
@@ -163,95 +98,6 @@
                           description="Expresión descriptiva de columna derivada"
                           expressionType="Notify"
                           name="FriendlyExpression">[Tarifa de envío] + Ingresos</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\precio compras cliente por dia\Columna derivada.Outputs[Salida de columna derivada].Columns[Columna derivada 3]"
-                      dataType="r8"
-                      errorOrTruncationOperation="Cálculo"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\precio compras cliente por dia\Columna derivada.Outputs[Salida de columna derivada].Columns[Columna derivada 3]"
-                      name="Columna derivada 3"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión de columna derivada"
-                          name="Expression">#{Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Folio]}</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión descriptiva de columna derivada"
-                          expressionType="Notify"
-                          name="FriendlyExpression">Folio</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\precio compras cliente por dia\Columna derivada.Outputs[Salida de columna derivada].Columns[Columna derivada 4]"
-                      dataType="date"
-                      errorOrTruncationOperation="Cálculo"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\precio compras cliente por dia\Columna derivada.Outputs[Salida de columna derivada].Columns[Columna derivada 4]"
-                      name="Columna derivada 4"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión de columna derivada"
-                          name="Expression">#{Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Fecha de orden]}</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión descriptiva de columna derivada"
-                          expressionType="Notify"
-                          name="FriendlyExpression">[Fecha de orden]</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\precio compras cliente por dia\Columna derivada.Outputs[Salida de columna derivada].Columns[Columna derivada 5]"
-                      dataType="r8"
-                      errorOrTruncationOperation="Cálculo"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\precio compras cliente por dia\Columna derivada.Outputs[Salida de columna derivada].Columns[Columna derivada 5]"
-                      name="Columna derivada 5"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión de columna derivada"
-                          name="Expression">#{Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Num# cliente]}</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión descriptiva de columna derivada"
-                          expressionType="Notify"
-                          name="FriendlyExpression">[Num# cliente]</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\precio compras cliente por dia\Columna derivada.Outputs[Salida de columna derivada].Columns[Columna derivada 6]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Cálculo"
-                      errorRowDisposition="FailComponent"
-                      length="255"
-                      lineageId="Package\precio compras cliente por dia\Columna derivada.Outputs[Salida de columna derivada].Columns[Columna derivada 6]"
-                      name="Columna derivada 6"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión de columna derivada"
-                          name="Expression">#{Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Nombre cliente]}</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión descriptiva de columna derivada"
-                          expressionType="Notify"
-                          name="FriendlyExpression">[Nombre cliente]</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -394,7 +240,8 @@
                       name="Num# cliente" />
                     <externalMetadataColumn
                       refId="Package\precio compras cliente por dia\Destino de Excel.Inputs[Entrada de destino de Excel].ExternalColumns[Nombre cliente]"
-                      dataType="nText"
+                      dataType="wstr"
+                      length="255"
                       name="Nombre cliente" />
                     <externalMetadataColumn
                       refId="Package\precio compras cliente por dia\Destino de Excel.Inputs[Entrada de destino de Excel].ExternalColumns[Total venta unica]"
@@ -549,107 +396,10 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\precio compras cliente por dia\Ordenar.Inputs[Entrada de ordenación].Columns[Columna derivada 1]"
-                      cachedDataType="cy"
-                      cachedName="Columna derivada 1"
-                      lineageId="Package\precio compras cliente por dia\Columna derivada.Outputs[Salida de columna derivada].Columns[Columna derivada 1]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica las opciones de comparación para datos de caracteres."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica el criterio de ordenación de la columna."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\precio compras cliente por dia\Ordenar.Inputs[Entrada de ordenación].Columns[Columna derivada 2]"
-                      cachedDataType="cy"
-                      cachedName="Columna derivada 2"
-                      lineageId="Package\precio compras cliente por dia\Columna derivada.Outputs[Salida de columna derivada].Columns[Columna derivada 2]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica las opciones de comparación para datos de caracteres."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica el criterio de ordenación de la columna."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
                       refId="Package\precio compras cliente por dia\Ordenar.Inputs[Entrada de ordenación].Columns[Total venta unica]"
                       cachedDataType="cy"
                       cachedName="Total venta unica"
                       lineageId="Package\precio compras cliente por dia\Columna derivada.Outputs[Salida de columna derivada].Columns[Total venta unica]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica las opciones de comparación para datos de caracteres."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica el criterio de ordenación de la columna."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\precio compras cliente por dia\Ordenar.Inputs[Entrada de ordenación].Columns[Columna derivada 3]"
-                      cachedDataType="r8"
-                      cachedName="Columna derivada 3"
-                      lineageId="Package\precio compras cliente por dia\Columna derivada.Outputs[Salida de columna derivada].Columns[Columna derivada 3]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica las opciones de comparación para datos de caracteres."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica el criterio de ordenación de la columna."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\precio compras cliente por dia\Ordenar.Inputs[Entrada de ordenación].Columns[Columna derivada 4]"
-                      cachedDataType="date"
-                      cachedName="Columna derivada 4"
-                      lineageId="Package\precio compras cliente por dia\Columna derivada.Outputs[Salida de columna derivada].Columns[Columna derivada 4]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica las opciones de comparación para datos de caracteres."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica el criterio de ordenación de la columna."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\precio compras cliente por dia\Ordenar.Inputs[Entrada de ordenación].Columns[Columna derivada 5]"
-                      cachedDataType="r8"
-                      cachedName="Columna derivada 5"
-                      lineageId="Package\precio compras cliente por dia\Columna derivada.Outputs[Salida de columna derivada].Columns[Columna derivada 5]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica las opciones de comparación para datos de caracteres."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica el criterio de ordenación de la columna."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\precio compras cliente por dia\Ordenar.Inputs[Entrada de ordenación].Columns[Columna derivada 6]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="Columna derivada 6"
-                      lineageId="Package\precio compras cliente por dia\Columna derivada.Outputs[Salida de columna derivada].Columns[Columna derivada 6]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -752,32 +502,6 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\precio compras cliente por dia\Ordenar.Outputs[Salida de ordenación].Columns[Columna derivada 1]"
-                      dataType="cy"
-                      lineageId="Package\precio compras cliente por dia\Ordenar.Outputs[Salida de ordenación].Columns[Columna derivada 1]"
-                      name="Columna derivada 1">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\precio compras cliente por dia\Columna derivada.Outputs[Salida de columna derivada].Columns[Columna derivada 1]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\precio compras cliente por dia\Ordenar.Outputs[Salida de ordenación].Columns[Columna derivada 2]"
-                      dataType="cy"
-                      lineageId="Package\precio compras cliente por dia\Ordenar.Outputs[Salida de ordenación].Columns[Columna derivada 2]"
-                      name="Columna derivada 2">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\precio compras cliente por dia\Columna derivada.Outputs[Salida de columna derivada].Columns[Columna derivada 2]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
                       refId="Package\precio compras cliente por dia\Ordenar.Outputs[Salida de ordenación].Columns[Total venta unica]"
                       dataType="cy"
                       lineageId="Package\precio compras cliente por dia\Ordenar.Outputs[Salida de ordenación].Columns[Total venta unica]"
@@ -788,59 +512,6 @@
                           dataType="System.Int32"
                           description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
                           name="SortColumnId">#{Package\precio compras cliente por dia\Columna derivada.Outputs[Salida de columna derivada].Columns[Total venta unica]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\precio compras cliente por dia\Ordenar.Outputs[Salida de ordenación].Columns[Columna derivada 3]"
-                      dataType="r8"
-                      lineageId="Package\precio compras cliente por dia\Ordenar.Outputs[Salida de ordenación].Columns[Columna derivada 3]"
-                      name="Columna derivada 3">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\precio compras cliente por dia\Columna derivada.Outputs[Salida de columna derivada].Columns[Columna derivada 3]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\precio compras cliente por dia\Ordenar.Outputs[Salida de ordenación].Columns[Columna derivada 4]"
-                      dataType="date"
-                      lineageId="Package\precio compras cliente por dia\Ordenar.Outputs[Salida de ordenación].Columns[Columna derivada 4]"
-                      name="Columna derivada 4">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\precio compras cliente por dia\Columna derivada.Outputs[Salida de columna derivada].Columns[Columna derivada 4]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\precio compras cliente por dia\Ordenar.Outputs[Salida de ordenación].Columns[Columna derivada 5]"
-                      dataType="r8"
-                      lineageId="Package\precio compras cliente por dia\Ordenar.Outputs[Salida de ordenación].Columns[Columna derivada 5]"
-                      name="Columna derivada 5">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\precio compras cliente por dia\Columna derivada.Outputs[Salida de columna derivada].Columns[Columna derivada 5]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\precio compras cliente por dia\Ordenar.Outputs[Salida de ordenación].Columns[Columna derivada 6]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\precio compras cliente por dia\Ordenar.Outputs[Salida de ordenación].Columns[Columna derivada 6]"
-                      name="Columna derivada 6">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\precio compras cliente por dia\Columna derivada.Outputs[Salida de columna derivada].Columns[Columna derivada 6]}</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -1140,28 +811,28 @@
         <NodeLayout
           Size="152,41.6"
           Id="Package\precio compras cliente por dia\Origen de Excel"
-          TopLeft="195.333325571484,56.1600004463196" />
+          TopLeft="329.999986886978,56.1600004463196" />
         <NodeLayout
           Size="116.8,41.6"
           Id="Package\precio compras cliente por dia\Ordenar"
-          TopLeft="453.999981959662,140.960001024882" />
+          TopLeft="588.666643275156,140.960001024882" />
         <NodeLayout
           Size="162.4,41.6"
           Id="Package\precio compras cliente por dia\Columna derivada"
-          TopLeft="404.666650586659,64.480000512441" />
+          TopLeft="539.333311902153,64.480000512441" />
         <NodeLayout
           Size="156,41.6"
           Id="Package\precio compras cliente por dia\Destino de Excel"
-          TopLeft="436.666649315093,236.160001520793" />
+          TopLeft="571.333310630588,236.160001520793" />
         <EdgeLayout
           Id="Package\precio compras cliente por dia.Paths[Salida de origen de Excel]"
-          TopLeft="347.333325571484,76.9600004463196">
+          TopLeft="481.999986886978,76.9600004463196">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="57.3333250151745,8.32000006612142"
+              EndConnector="57.3333250151745,9.01333340496487"
               Start="0,0"
-              End="49.8333250151745,8.32000006612142">
+              End="49.8333250151745,9.01333340496487">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -1172,35 +843,13 @@
                     Point2="28.6666625075873,0"
                     Point3="28.6666625075873,4" />
                   <mssgle:LineSegment
-                    End="28.6666625075873,4.32000006612142" />
+                    End="28.6666625075873,5.01333340496487" />
                   <mssgle:CubicBezierSegment
-                    Point1="28.6666625075873,4.32000006612142"
-                    Point2="28.6666625075873,8.32000006612142"
-                    Point3="32.6666625075873,8.32000006612142" />
+                    Point1="28.6666625075873,5.01333340496487"
+                    Point2="28.6666625075873,9.01333340496487"
+                    Point3="32.6666625075873,9.01333340496487" />
                   <mssgle:LineSegment
-                    End="49.8333250151745,8.32000006612142" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\precio compras cliente por dia.Paths[Salida de ordenación]"
-          TopLeft="513.533315637378,182.560001024882">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,53.600000495911"
-              Start="0,0"
-              End="0,46.100000495911">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,46.100000495911" />
+                    End="49.8333250151745,9.01333340496487" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1211,7 +860,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\precio compras cliente por dia.Paths[Salida de columna derivada]"
-          TopLeft="485.866650586659,106.080000512441">
+          TopLeft="620.533311902153,106.080000512441">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1235,6 +884,28 @@
                     Point3="26.5333313730028,21.4400002562205" />
                   <mssgle:LineSegment
                     End="26.5333313730028,27.380000512441" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\precio compras cliente por dia.Paths[Salida de ordenación]"
+          TopLeft="648.199976952872,182.560001024882">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,53.600000495911"
+              Start="0,0"
+              End="0,46.100000495911">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46.100000495911" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
