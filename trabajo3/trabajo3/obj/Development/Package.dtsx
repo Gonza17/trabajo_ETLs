@@ -11,8 +11,8 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="2"
-  DTS:VersionGUID="{6E297447-AE2E-4D15-9655-2B94384E3B89}">
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{898EABBF-AA57-40EE-BCA3-E829E6CA4777}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -24,6 +24,16 @@
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:\gestion 2\trabajos\trabajo_ETL\etls.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Administrador de conexiones con Excel 1]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{A66B0A77-EF4E-4D56-86D2-9407E814C3B3}"
+      DTS:ObjectName="Administrador de conexiones con Excel 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:\User\Tomacho\Desktop\UNIVERSIDAD\Sistema De Gestion 2\Trabajo3gestion2\trabajo_ETLs\etls.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -233,8 +243,8 @@
               <connections>
                 <connection
                   refId="Package\Data Flow Task\datos cliente.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Administrador de conexiones con Excel]"
-                  connectionManagerRefId="Package.ConnectionManagers[Administrador de conexiones con Excel]"
+                  connectionManagerID="Package.ConnectionManagers[Administrador de conexiones con Excel 1]"
+                  connectionManagerRefId="Package.ConnectionManagers[Administrador de conexiones con Excel 1]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -475,8 +485,8 @@
               <connections>
                 <connection
                   refId="Package\Data Flow Task\Excel Destination.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Administrador de conexiones con Excel]"
-                  connectionManagerRefId="Package.ConnectionManagers[Administrador de conexiones con Excel]"
+                  connectionManagerID="Package.ConnectionManagers[Administrador de conexiones con Excel 1]"
+                  connectionManagerRefId="Package.ConnectionManagers[Administrador de conexiones con Excel 1]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -528,23 +538,28 @@
                     isUsed="True">
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Num# cliente]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="255"
                       name="Num# cliente" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Nombre cliente]"
-                      dataType="nText"
+                      dataType="wstr"
+                      length="255"
                       name="Nombre cliente" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Ciudad]"
-                      dataType="nText"
+                      dataType="wstr"
+                      length="255"
                       name="Ciudad" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Estado]"
-                      dataType="nText"
+                      dataType="wstr"
+                      length="255"
                       name="Estado" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Region]"
-                      dataType="nText"
+                      dataType="wstr"
+                      length="255"
                       name="Region" />
                   </externalMetadataColumns>
                 </input>
@@ -813,65 +828,21 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="137.6,41.6"
+          Size="136.8,41.6"
           Id="Package\Data Flow Task\datos cliente"
           TopLeft="86.2857157551513,138.870590182902" />
-        <NodeLayout
-          Size="230.4,41.6"
-          Id="Package\Data Flow Task\Cambia los nombres a columnas"
-          TopLeft="298.28571936549,138.870590182902" />
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Excel Source Output]"
-          TopLeft="223.885715755151,159.670590182902">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="74.4000036103386,0"
-              Start="0,0"
-              End="66.9000036103386,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="66.9000036103386,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="225.6,44.8"
-          Id="Package\Data Flow Task\ordena y elimina los duplicados"
-          TopLeft="307.428576664049,239.20000335469" />
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Derived Column Output]"
-          TopLeft="416.857148014769,180.470590182902">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,58.729413171788"
-              Start="0,0"
-              End="0,51.229413171788">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,51.229413171788" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <NodeLayout
           Size="159.2,41.6"
           Id="Package\Data Flow Task\Excel Destination"
           TopLeft="336.928577072766,330.958828093849" />
+        <NodeLayout
+          Size="230.4,41.6"
+          Id="Package\Data Flow Task\Cambia los nombres a columnas"
+          TopLeft="298.28571936549,138.870590182902" />
+        <NodeLayout
+          Size="225.6,44.8"
+          Id="Package\Data Flow Task\ordena y elimina los duplicados"
+          TopLeft="307.428576664049,239.20000335469" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Sort Output]"
           TopLeft="418.378576868408,284.00000335469">
@@ -886,6 +857,50 @@
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,39.4588247391592" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Excel Source Output]"
+          TopLeft="223.085715755151,159.670590182902">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="75.2000036103387,0"
+              Start="0,0"
+              End="67.7000036103387,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="67.7000036103387,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Derived Column Output]"
+          TopLeft="416.857148014769,180.470590182902">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,58.729413171788"
+              Start="0,0"
+              End="0,51.229413171788">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51.229413171788" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
