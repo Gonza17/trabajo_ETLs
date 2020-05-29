@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="7"
-  DTS:VersionGUID="{92F361E5-8CDF-4364-8A0F-C645C15FDB65}">
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{8FBD19FB-C539-4EDA-9368-BA9E62A22504}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -30,13 +30,13 @@
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\precio compras cliente por dia"
+      DTS:refId="Package\Suma ingreso y tarifa de envio"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Tarea Flujo de datos"
       DTS:DTSID="{0D0C4434-9C01-415B-B656-F4377B0D793F}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
-      DTS:ObjectName="precio compras cliente por dia"
+      DTS:ObjectName="Suma ingreso y tarifa de envio"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
       <DTS:ObjectData>
@@ -44,7 +44,7 @@
           version="1">
           <components>
             <component
-              refId="Package\precio compras cliente por dia\Columna derivada"
+              refId="Package\Suma ingreso y tarifa de envio\Columna derivada"
               componentClassID="Microsoft.DerivedColumn"
               contactInfo="Columna derivada;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
               description="Crea nuevos valores de columna aplicando expresiones a las columnas de entrada de la transformación. Crea nuevas columnas o sobrescribe las columnas existentes. Por ejemplo, se concatenan los valores de las columnas 'nombre' y 'apellidos' para crear una columna 'nombre completo'."
@@ -52,103 +52,38 @@
               usesDispositions="true">
               <inputs>
                 <input
-                  refId="Package\precio compras cliente por dia\Columna derivada.Inputs[Entrada de columna derivada]"
+                  refId="Package\Suma ingreso y tarifa de envio\Columna derivada.Inputs[Entrada de columna derivada]"
                   description="Entrada en la transformación Columna derivada"
                   name="Entrada de columna derivada">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\precio compras cliente por dia\Columna derivada.Inputs[Entrada de columna derivada].Columns[Folio]"
-                      cachedDataType="r8"
-                      cachedName="Folio"
-                      lineageId="Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Folio]" />
-                    <inputColumn
-                      refId="Package\precio compras cliente por dia\Columna derivada.Inputs[Entrada de columna derivada].Columns[Fecha de orden]"
-                      cachedDataType="date"
-                      cachedName="Fecha de orden"
-                      lineageId="Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Fecha de orden]" />
-                    <inputColumn
-                      refId="Package\precio compras cliente por dia\Columna derivada.Inputs[Entrada de columna derivada].Columns[Num# cliente]"
-                      cachedDataType="r8"
-                      cachedName="Num# cliente"
-                      lineageId="Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Num# cliente]" />
-                    <inputColumn
-                      refId="Package\precio compras cliente por dia\Columna derivada.Inputs[Entrada de columna derivada].Columns[Nombre cliente]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="Nombre cliente"
-                      lineageId="Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Nombre cliente]" />
-                    <inputColumn
-                      refId="Package\precio compras cliente por dia\Columna derivada.Inputs[Entrada de columna derivada].Columns[Tarifa de envío]"
+                      refId="Package\Suma ingreso y tarifa de envio\Columna derivada.Inputs[Entrada de columna derivada].Columns[Tarifa de envío]"
                       cachedDataType="cy"
                       cachedName="Tarifa de envío"
-                      lineageId="Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Tarifa de envío]" />
+                      lineageId="Package\Suma ingreso y tarifa de envio\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Tarifa de envío]" />
                     <inputColumn
-                      refId="Package\precio compras cliente por dia\Columna derivada.Inputs[Entrada de columna derivada].Columns[Ingresos]"
+                      refId="Package\Suma ingreso y tarifa de envio\Columna derivada.Inputs[Entrada de columna derivada].Columns[Ingresos]"
                       cachedDataType="cy"
                       cachedName="Ingresos"
-                      lineageId="Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Ingresos]" />
+                      lineageId="Package\Suma ingreso y tarifa de envio\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Ingresos]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\precio compras cliente por dia\Columna derivada.Outputs[Salida de columna derivada]"
+                  refId="Package\Suma ingreso y tarifa de envio\Columna derivada.Outputs[Salida de columna derivada]"
                   description="Salida predeterminada de la transformación Columna derivada"
                   exclusionGroup="1"
                   name="Salida de columna derivada"
-                  synchronousInputId="Package\precio compras cliente por dia\Columna derivada.Inputs[Entrada de columna derivada]">
+                  synchronousInputId="Package\Suma ingreso y tarifa de envio\Columna derivada.Inputs[Entrada de columna derivada]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\precio compras cliente por dia\Columna derivada.Outputs[Salida de columna derivada].Columns[Columna derivada 1]"
+                      refId="Package\Suma ingreso y tarifa de envio\Columna derivada.Outputs[Salida de columna derivada].Columns[Total venta unica]"
                       dataType="cy"
                       errorOrTruncationOperation="Cálculo"
                       errorRowDisposition="FailComponent"
-                      lineageId="Package\precio compras cliente por dia\Columna derivada.Outputs[Salida de columna derivada].Columns[Columna derivada 1]"
-                      name="Columna derivada 1"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión de columna derivada"
-                          name="Expression">#{Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Tarifa de envío]}</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión descriptiva de columna derivada"
-                          expressionType="Notify"
-                          name="FriendlyExpression">[Tarifa de envío]</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\precio compras cliente por dia\Columna derivada.Outputs[Salida de columna derivada].Columns[Columna derivada 2]"
-                      dataType="cy"
-                      errorOrTruncationOperation="Cálculo"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\precio compras cliente por dia\Columna derivada.Outputs[Salida de columna derivada].Columns[Columna derivada 2]"
-                      name="Columna derivada 2"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión de columna derivada"
-                          name="Expression">#{Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Ingresos]}</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión descriptiva de columna derivada"
-                          expressionType="Notify"
-                          name="FriendlyExpression">Ingresos</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\precio compras cliente por dia\Columna derivada.Outputs[Salida de columna derivada].Columns[Total venta unica]"
-                      dataType="cy"
-                      errorOrTruncationOperation="Cálculo"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\precio compras cliente por dia\Columna derivada.Outputs[Salida de columna derivada].Columns[Total venta unica]"
+                      lineageId="Package\Suma ingreso y tarifa de envio\Columna derivada.Outputs[Salida de columna derivada].Columns[Total venta unica]"
                       name="Total venta unica"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -156,7 +91,7 @@
                           containsID="true"
                           dataType="System.String"
                           description="Expresión de columna derivada"
-                          name="Expression">#{Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Tarifa de envío]} + #{Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Ingresos]}</property>
+                          name="Expression">#{Package\Suma ingreso y tarifa de envio\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Tarifa de envío]} + #{Package\Suma ingreso y tarifa de envio\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Ingresos]}</property>
                         <property
                           containsID="true"
                           dataType="System.String"
@@ -165,116 +100,27 @@
                           name="FriendlyExpression">[Tarifa de envío] + Ingresos</property>
                       </properties>
                     </outputColumn>
-                    <outputColumn
-                      refId="Package\precio compras cliente por dia\Columna derivada.Outputs[Salida de columna derivada].Columns[Columna derivada 3]"
-                      dataType="r8"
-                      errorOrTruncationOperation="Cálculo"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\precio compras cliente por dia\Columna derivada.Outputs[Salida de columna derivada].Columns[Columna derivada 3]"
-                      name="Columna derivada 3"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión de columna derivada"
-                          name="Expression">#{Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Folio]}</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión descriptiva de columna derivada"
-                          expressionType="Notify"
-                          name="FriendlyExpression">Folio</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\precio compras cliente por dia\Columna derivada.Outputs[Salida de columna derivada].Columns[Columna derivada 4]"
-                      dataType="date"
-                      errorOrTruncationOperation="Cálculo"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\precio compras cliente por dia\Columna derivada.Outputs[Salida de columna derivada].Columns[Columna derivada 4]"
-                      name="Columna derivada 4"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión de columna derivada"
-                          name="Expression">#{Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Fecha de orden]}</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión descriptiva de columna derivada"
-                          expressionType="Notify"
-                          name="FriendlyExpression">[Fecha de orden]</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\precio compras cliente por dia\Columna derivada.Outputs[Salida de columna derivada].Columns[Columna derivada 5]"
-                      dataType="r8"
-                      errorOrTruncationOperation="Cálculo"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\precio compras cliente por dia\Columna derivada.Outputs[Salida de columna derivada].Columns[Columna derivada 5]"
-                      name="Columna derivada 5"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión de columna derivada"
-                          name="Expression">#{Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Num# cliente]}</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión descriptiva de columna derivada"
-                          expressionType="Notify"
-                          name="FriendlyExpression">[Num# cliente]</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\precio compras cliente por dia\Columna derivada.Outputs[Salida de columna derivada].Columns[Columna derivada 6]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Cálculo"
-                      errorRowDisposition="FailComponent"
-                      length="255"
-                      lineageId="Package\precio compras cliente por dia\Columna derivada.Outputs[Salida de columna derivada].Columns[Columna derivada 6]"
-                      name="Columna derivada 6"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión de columna derivada"
-                          name="Expression">#{Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Nombre cliente]}</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión descriptiva de columna derivada"
-                          expressionType="Notify"
-                          name="FriendlyExpression">[Nombre cliente]</property>
-                      </properties>
-                    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\precio compras cliente por dia\Columna derivada.Outputs[Salida de error de columna derivada]"
+                  refId="Package\Suma ingreso y tarifa de envio\Columna derivada.Outputs[Salida de error de columna derivada]"
                   description="Salida de error de la transformación Columna derivada"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Salida de error de columna derivada"
-                  synchronousInputId="Package\precio compras cliente por dia\Columna derivada.Inputs[Entrada de columna derivada]">
+                  synchronousInputId="Package\Suma ingreso y tarifa de envio\Columna derivada.Inputs[Entrada de columna derivada]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\precio compras cliente por dia\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      refId="Package\Suma ingreso y tarifa de envio\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\precio compras cliente por dia\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      lineageId="Package\Suma ingreso y tarifa de envio\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\precio compras cliente por dia\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      refId="Package\Suma ingreso y tarifa de envio\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\precio compras cliente por dia\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      lineageId="Package\Suma ingreso y tarifa de envio\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -283,7 +129,7 @@
               </outputs>
             </component>
             <component
-              refId="Package\precio compras cliente por dia\Destino de Excel"
+              refId="Package\Suma ingreso y tarifa de envio\Destino de Excel"
               componentClassID="Microsoft.ExcelDestination"
               contactInfo="Destino de Excel;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
               description="Destino de Excel"
@@ -331,7 +177,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\precio compras cliente por dia\Destino de Excel.Connections[OleDbConnection]"
+                  refId="Package\Suma ingreso y tarifa de envio\Destino de Excel.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[Administrador de conexiones con Excel]"
                   connectionManagerRefId="Package.ConnectionManagers[Administrador de conexiones con Excel]"
                   description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
@@ -339,65 +185,66 @@
               </connections>
               <inputs>
                 <input
-                  refId="Package\precio compras cliente por dia\Destino de Excel.Inputs[Entrada de destino de Excel]"
+                  refId="Package\Suma ingreso y tarifa de envio\Destino de Excel.Inputs[Entrada de destino de Excel]"
                   errorOrTruncationOperation="Insertar"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="Entrada de destino de Excel">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\precio compras cliente por dia\Destino de Excel.Inputs[Entrada de destino de Excel].Columns[Folio]"
+                      refId="Package\Suma ingreso y tarifa de envio\Destino de Excel.Inputs[Entrada de destino de Excel].Columns[Folio]"
                       cachedDataType="r8"
                       cachedName="Folio"
                       cachedSortKeyPosition="1"
-                      externalMetadataColumnId="Package\precio compras cliente por dia\Destino de Excel.Inputs[Entrada de destino de Excel].ExternalColumns[Folio]"
-                      lineageId="Package\precio compras cliente por dia\Ordenar.Outputs[Salida de ordenación].Columns[Folio]" />
+                      externalMetadataColumnId="Package\Suma ingreso y tarifa de envio\Destino de Excel.Inputs[Entrada de destino de Excel].ExternalColumns[Folio]"
+                      lineageId="Package\Suma ingreso y tarifa de envio\Ordenar.Outputs[Salida de ordenación].Columns[Folio]" />
                     <inputColumn
-                      refId="Package\precio compras cliente por dia\Destino de Excel.Inputs[Entrada de destino de Excel].Columns[Fecha de orden]"
+                      refId="Package\Suma ingreso y tarifa de envio\Destino de Excel.Inputs[Entrada de destino de Excel].Columns[Fecha de orden]"
                       cachedDataType="date"
                       cachedName="Fecha de orden"
-                      externalMetadataColumnId="Package\precio compras cliente por dia\Destino de Excel.Inputs[Entrada de destino de Excel].ExternalColumns[Fecha de orden]"
-                      lineageId="Package\precio compras cliente por dia\Ordenar.Outputs[Salida de ordenación].Columns[Fecha de orden]" />
+                      externalMetadataColumnId="Package\Suma ingreso y tarifa de envio\Destino de Excel.Inputs[Entrada de destino de Excel].ExternalColumns[Fecha de orden]"
+                      lineageId="Package\Suma ingreso y tarifa de envio\Ordenar.Outputs[Salida de ordenación].Columns[Fecha de orden]" />
                     <inputColumn
-                      refId="Package\precio compras cliente por dia\Destino de Excel.Inputs[Entrada de destino de Excel].Columns[Num# cliente]"
+                      refId="Package\Suma ingreso y tarifa de envio\Destino de Excel.Inputs[Entrada de destino de Excel].Columns[Num# cliente]"
                       cachedDataType="r8"
                       cachedName="Num# cliente"
-                      externalMetadataColumnId="Package\precio compras cliente por dia\Destino de Excel.Inputs[Entrada de destino de Excel].ExternalColumns[Num# cliente]"
-                      lineageId="Package\precio compras cliente por dia\Ordenar.Outputs[Salida de ordenación].Columns[Num# cliente]" />
+                      externalMetadataColumnId="Package\Suma ingreso y tarifa de envio\Destino de Excel.Inputs[Entrada de destino de Excel].ExternalColumns[Num# cliente]"
+                      lineageId="Package\Suma ingreso y tarifa de envio\Ordenar.Outputs[Salida de ordenación].Columns[Num# cliente]" />
                     <inputColumn
-                      refId="Package\precio compras cliente por dia\Destino de Excel.Inputs[Entrada de destino de Excel].Columns[Nombre cliente]"
+                      refId="Package\Suma ingreso y tarifa de envio\Destino de Excel.Inputs[Entrada de destino de Excel].Columns[Nombre cliente]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="Nombre cliente"
-                      externalMetadataColumnId="Package\precio compras cliente por dia\Destino de Excel.Inputs[Entrada de destino de Excel].ExternalColumns[Nombre cliente]"
-                      lineageId="Package\precio compras cliente por dia\Ordenar.Outputs[Salida de ordenación].Columns[Nombre cliente]" />
+                      externalMetadataColumnId="Package\Suma ingreso y tarifa de envio\Destino de Excel.Inputs[Entrada de destino de Excel].ExternalColumns[Nombre cliente]"
+                      lineageId="Package\Suma ingreso y tarifa de envio\Ordenar.Outputs[Salida de ordenación].Columns[Nombre cliente]" />
                     <inputColumn
-                      refId="Package\precio compras cliente por dia\Destino de Excel.Inputs[Entrada de destino de Excel].Columns[Total venta unica]"
+                      refId="Package\Suma ingreso y tarifa de envio\Destino de Excel.Inputs[Entrada de destino de Excel].Columns[Total venta unica]"
                       cachedDataType="cy"
                       cachedName="Total venta unica"
-                      externalMetadataColumnId="Package\precio compras cliente por dia\Destino de Excel.Inputs[Entrada de destino de Excel].ExternalColumns[Total venta unica]"
-                      lineageId="Package\precio compras cliente por dia\Ordenar.Outputs[Salida de ordenación].Columns[Total venta unica]" />
+                      externalMetadataColumnId="Package\Suma ingreso y tarifa de envio\Destino de Excel.Inputs[Entrada de destino de Excel].ExternalColumns[Total venta unica]"
+                      lineageId="Package\Suma ingreso y tarifa de envio\Ordenar.Outputs[Salida de ordenación].Columns[Total venta unica]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\precio compras cliente por dia\Destino de Excel.Inputs[Entrada de destino de Excel].ExternalColumns[Folio]"
+                      refId="Package\Suma ingreso y tarifa de envio\Destino de Excel.Inputs[Entrada de destino de Excel].ExternalColumns[Folio]"
                       dataType="r8"
                       name="Folio" />
                     <externalMetadataColumn
-                      refId="Package\precio compras cliente por dia\Destino de Excel.Inputs[Entrada de destino de Excel].ExternalColumns[Fecha de orden]"
+                      refId="Package\Suma ingreso y tarifa de envio\Destino de Excel.Inputs[Entrada de destino de Excel].ExternalColumns[Fecha de orden]"
                       dataType="date"
                       name="Fecha de orden" />
                     <externalMetadataColumn
-                      refId="Package\precio compras cliente por dia\Destino de Excel.Inputs[Entrada de destino de Excel].ExternalColumns[Num# cliente]"
+                      refId="Package\Suma ingreso y tarifa de envio\Destino de Excel.Inputs[Entrada de destino de Excel].ExternalColumns[Num# cliente]"
                       dataType="r8"
                       name="Num# cliente" />
                     <externalMetadataColumn
-                      refId="Package\precio compras cliente por dia\Destino de Excel.Inputs[Entrada de destino de Excel].ExternalColumns[Nombre cliente]"
-                      dataType="nText"
+                      refId="Package\Suma ingreso y tarifa de envio\Destino de Excel.Inputs[Entrada de destino de Excel].ExternalColumns[Nombre cliente]"
+                      dataType="wstr"
+                      length="255"
                       name="Nombre cliente" />
                     <externalMetadataColumn
-                      refId="Package\precio compras cliente por dia\Destino de Excel.Inputs[Entrada de destino de Excel].ExternalColumns[Total venta unica]"
+                      refId="Package\Suma ingreso y tarifa de envio\Destino de Excel.Inputs[Entrada de destino de Excel].ExternalColumns[Total venta unica]"
                       dataType="cy"
                       name="Total venta unica" />
                   </externalMetadataColumns>
@@ -405,22 +252,22 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\precio compras cliente por dia\Destino de Excel.Outputs[Salida de error de destino de Excel]"
+                  refId="Package\Suma ingreso y tarifa de envio\Destino de Excel.Outputs[Salida de error de destino de Excel]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Salida de error de destino de Excel"
-                  synchronousInputId="Package\precio compras cliente por dia\Destino de Excel.Inputs[Entrada de destino de Excel]">
+                  synchronousInputId="Package\Suma ingreso y tarifa de envio\Destino de Excel.Inputs[Entrada de destino de Excel]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\precio compras cliente por dia\Destino de Excel.Outputs[Salida de error de destino de Excel].Columns[ErrorCode]"
+                      refId="Package\Suma ingreso y tarifa de envio\Destino de Excel.Outputs[Salida de error de destino de Excel].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\precio compras cliente por dia\Destino de Excel.Outputs[Salida de error de destino de Excel].Columns[ErrorCode]"
+                      lineageId="Package\Suma ingreso y tarifa de envio\Destino de Excel.Outputs[Salida de error de destino de Excel].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\precio compras cliente por dia\Destino de Excel.Outputs[Salida de error de destino de Excel].Columns[ErrorColumn]"
+                      refId="Package\Suma ingreso y tarifa de envio\Destino de Excel.Outputs[Salida de error de destino de Excel].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\precio compras cliente por dia\Destino de Excel.Outputs[Salida de error de destino de Excel].Columns[ErrorColumn]"
+                      lineageId="Package\Suma ingreso y tarifa de envio\Destino de Excel.Outputs[Salida de error de destino de Excel].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -429,7 +276,7 @@
               </outputs>
             </component>
             <component
-              refId="Package\precio compras cliente por dia\Ordenar"
+              refId="Package\Suma ingreso y tarifa de envio\Ordenar"
               componentClassID="Microsoft.Sort"
               contactInfo="Ordenar;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
               description="Ordena los datos de entrada de manera ascendente o descendente cuando no es posible ordenarlos en su origen. Por ejemplo, se ordenan los datos de ventas por 'id. de cliente' antes de que se escriban en un archivo plano y se entreguen a otro departamento. Nota: no se recomienda realizar esta transformación para grandes flujos de datos."
@@ -448,14 +295,14 @@
               </properties>
               <inputs>
                 <input
-                  refId="Package\precio compras cliente por dia\Ordenar.Inputs[Entrada de ordenación]"
+                  refId="Package\Suma ingreso y tarifa de envio\Ordenar.Inputs[Entrada de ordenación]"
                   name="Entrada de ordenación">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\precio compras cliente por dia\Ordenar.Inputs[Entrada de ordenación].Columns[Folio]"
+                      refId="Package\Suma ingreso y tarifa de envio\Ordenar.Inputs[Entrada de ordenación].Columns[Folio]"
                       cachedDataType="r8"
                       cachedName="Folio"
-                      lineageId="Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Folio]">
+                      lineageId="Package\Suma ingreso y tarifa de envio\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Folio]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -468,10 +315,10 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\precio compras cliente por dia\Ordenar.Inputs[Entrada de ordenación].Columns[Fecha de orden]"
+                      refId="Package\Suma ingreso y tarifa de envio\Ordenar.Inputs[Entrada de ordenación].Columns[Fecha de orden]"
                       cachedDataType="date"
                       cachedName="Fecha de orden"
-                      lineageId="Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Fecha de orden]">
+                      lineageId="Package\Suma ingreso y tarifa de envio\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Fecha de orden]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -484,10 +331,10 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\precio compras cliente por dia\Ordenar.Inputs[Entrada de ordenación].Columns[Num# cliente]"
+                      refId="Package\Suma ingreso y tarifa de envio\Ordenar.Inputs[Entrada de ordenación].Columns[Num# cliente]"
                       cachedDataType="r8"
                       cachedName="Num# cliente"
-                      lineageId="Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Num# cliente]">
+                      lineageId="Package\Suma ingreso y tarifa de envio\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Num# cliente]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -500,11 +347,11 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\precio compras cliente por dia\Ordenar.Inputs[Entrada de ordenación].Columns[Nombre cliente]"
+                      refId="Package\Suma ingreso y tarifa de envio\Ordenar.Inputs[Entrada de ordenación].Columns[Nombre cliente]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="Nombre cliente"
-                      lineageId="Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Nombre cliente]">
+                      lineageId="Package\Suma ingreso y tarifa de envio\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Nombre cliente]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -517,10 +364,10 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\precio compras cliente por dia\Ordenar.Inputs[Entrada de ordenación].Columns[Tarifa de envío]"
+                      refId="Package\Suma ingreso y tarifa de envio\Ordenar.Inputs[Entrada de ordenación].Columns[Tarifa de envío]"
                       cachedDataType="cy"
                       cachedName="Tarifa de envío"
-                      lineageId="Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Tarifa de envío]">
+                      lineageId="Package\Suma ingreso y tarifa de envio\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Tarifa de envío]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -533,10 +380,10 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\precio compras cliente por dia\Ordenar.Inputs[Entrada de ordenación].Columns[Ingresos]"
+                      refId="Package\Suma ingreso y tarifa de envio\Ordenar.Inputs[Entrada de ordenación].Columns[Ingresos]"
                       cachedDataType="cy"
                       cachedName="Ingresos"
-                      lineageId="Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Ingresos]">
+                      lineageId="Package\Suma ingreso y tarifa de envio\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Ingresos]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -549,107 +396,10 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\precio compras cliente por dia\Ordenar.Inputs[Entrada de ordenación].Columns[Columna derivada 1]"
-                      cachedDataType="cy"
-                      cachedName="Columna derivada 1"
-                      lineageId="Package\precio compras cliente por dia\Columna derivada.Outputs[Salida de columna derivada].Columns[Columna derivada 1]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica las opciones de comparación para datos de caracteres."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica el criterio de ordenación de la columna."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\precio compras cliente por dia\Ordenar.Inputs[Entrada de ordenación].Columns[Columna derivada 2]"
-                      cachedDataType="cy"
-                      cachedName="Columna derivada 2"
-                      lineageId="Package\precio compras cliente por dia\Columna derivada.Outputs[Salida de columna derivada].Columns[Columna derivada 2]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica las opciones de comparación para datos de caracteres."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica el criterio de ordenación de la columna."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\precio compras cliente por dia\Ordenar.Inputs[Entrada de ordenación].Columns[Total venta unica]"
+                      refId="Package\Suma ingreso y tarifa de envio\Ordenar.Inputs[Entrada de ordenación].Columns[Total venta unica]"
                       cachedDataType="cy"
                       cachedName="Total venta unica"
-                      lineageId="Package\precio compras cliente por dia\Columna derivada.Outputs[Salida de columna derivada].Columns[Total venta unica]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica las opciones de comparación para datos de caracteres."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica el criterio de ordenación de la columna."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\precio compras cliente por dia\Ordenar.Inputs[Entrada de ordenación].Columns[Columna derivada 3]"
-                      cachedDataType="r8"
-                      cachedName="Columna derivada 3"
-                      lineageId="Package\precio compras cliente por dia\Columna derivada.Outputs[Salida de columna derivada].Columns[Columna derivada 3]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica las opciones de comparación para datos de caracteres."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica el criterio de ordenación de la columna."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\precio compras cliente por dia\Ordenar.Inputs[Entrada de ordenación].Columns[Columna derivada 4]"
-                      cachedDataType="date"
-                      cachedName="Columna derivada 4"
-                      lineageId="Package\precio compras cliente por dia\Columna derivada.Outputs[Salida de columna derivada].Columns[Columna derivada 4]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica las opciones de comparación para datos de caracteres."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica el criterio de ordenación de la columna."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\precio compras cliente por dia\Ordenar.Inputs[Entrada de ordenación].Columns[Columna derivada 5]"
-                      cachedDataType="r8"
-                      cachedName="Columna derivada 5"
-                      lineageId="Package\precio compras cliente por dia\Columna derivada.Outputs[Salida de columna derivada].Columns[Columna derivada 5]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica las opciones de comparación para datos de caracteres."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Especifica el criterio de ordenación de la columna."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\precio compras cliente por dia\Ordenar.Inputs[Entrada de ordenación].Columns[Columna derivada 6]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="Columna derivada 6"
-                      lineageId="Package\precio compras cliente por dia\Columna derivada.Outputs[Salida de columna derivada].Columns[Columna derivada 6]">
+                      lineageId="Package\Suma ingreso y tarifa de envio\Columna derivada.Outputs[Salida de columna derivada].Columns[Total venta unica]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -667,14 +417,14 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\precio compras cliente por dia\Ordenar.Outputs[Salida de ordenación]"
+                  refId="Package\Suma ingreso y tarifa de envio\Ordenar.Outputs[Salida de ordenación]"
                   isSorted="true"
                   name="Salida de ordenación">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\precio compras cliente por dia\Ordenar.Outputs[Salida de ordenación].Columns[Folio]"
+                      refId="Package\Suma ingreso y tarifa de envio\Ordenar.Outputs[Salida de ordenación].Columns[Folio]"
                       dataType="r8"
-                      lineageId="Package\precio compras cliente por dia\Ordenar.Outputs[Salida de ordenación].Columns[Folio]"
+                      lineageId="Package\Suma ingreso y tarifa de envio\Ordenar.Outputs[Salida de ordenación].Columns[Folio]"
                       name="Folio"
                       sortKeyPosition="1">
                       <properties>
@@ -682,165 +432,86 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Folio]}</property>
+                          name="SortColumnId">#{Package\Suma ingreso y tarifa de envio\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Folio]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\precio compras cliente por dia\Ordenar.Outputs[Salida de ordenación].Columns[Fecha de orden]"
+                      refId="Package\Suma ingreso y tarifa de envio\Ordenar.Outputs[Salida de ordenación].Columns[Fecha de orden]"
                       dataType="date"
-                      lineageId="Package\precio compras cliente por dia\Ordenar.Outputs[Salida de ordenación].Columns[Fecha de orden]"
+                      lineageId="Package\Suma ingreso y tarifa de envio\Ordenar.Outputs[Salida de ordenación].Columns[Fecha de orden]"
                       name="Fecha de orden">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Fecha de orden]}</property>
+                          name="SortColumnId">#{Package\Suma ingreso y tarifa de envio\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Fecha de orden]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\precio compras cliente por dia\Ordenar.Outputs[Salida de ordenación].Columns[Num# cliente]"
+                      refId="Package\Suma ingreso y tarifa de envio\Ordenar.Outputs[Salida de ordenación].Columns[Num# cliente]"
                       dataType="r8"
-                      lineageId="Package\precio compras cliente por dia\Ordenar.Outputs[Salida de ordenación].Columns[Num# cliente]"
+                      lineageId="Package\Suma ingreso y tarifa de envio\Ordenar.Outputs[Salida de ordenación].Columns[Num# cliente]"
                       name="Num# cliente">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Num# cliente]}</property>
+                          name="SortColumnId">#{Package\Suma ingreso y tarifa de envio\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Num# cliente]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\precio compras cliente por dia\Ordenar.Outputs[Salida de ordenación].Columns[Nombre cliente]"
+                      refId="Package\Suma ingreso y tarifa de envio\Ordenar.Outputs[Salida de ordenación].Columns[Nombre cliente]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\precio compras cliente por dia\Ordenar.Outputs[Salida de ordenación].Columns[Nombre cliente]"
+                      lineageId="Package\Suma ingreso y tarifa de envio\Ordenar.Outputs[Salida de ordenación].Columns[Nombre cliente]"
                       name="Nombre cliente">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Nombre cliente]}</property>
+                          name="SortColumnId">#{Package\Suma ingreso y tarifa de envio\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Nombre cliente]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\precio compras cliente por dia\Ordenar.Outputs[Salida de ordenación].Columns[Tarifa de envío]"
+                      refId="Package\Suma ingreso y tarifa de envio\Ordenar.Outputs[Salida de ordenación].Columns[Tarifa de envío]"
                       dataType="cy"
-                      lineageId="Package\precio compras cliente por dia\Ordenar.Outputs[Salida de ordenación].Columns[Tarifa de envío]"
+                      lineageId="Package\Suma ingreso y tarifa de envio\Ordenar.Outputs[Salida de ordenación].Columns[Tarifa de envío]"
                       name="Tarifa de envío">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Tarifa de envío]}</property>
+                          name="SortColumnId">#{Package\Suma ingreso y tarifa de envio\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Tarifa de envío]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\precio compras cliente por dia\Ordenar.Outputs[Salida de ordenación].Columns[Ingresos]"
+                      refId="Package\Suma ingreso y tarifa de envio\Ordenar.Outputs[Salida de ordenación].Columns[Ingresos]"
                       dataType="cy"
-                      lineageId="Package\precio compras cliente por dia\Ordenar.Outputs[Salida de ordenación].Columns[Ingresos]"
+                      lineageId="Package\Suma ingreso y tarifa de envio\Ordenar.Outputs[Salida de ordenación].Columns[Ingresos]"
                       name="Ingresos">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Ingresos]}</property>
+                          name="SortColumnId">#{Package\Suma ingreso y tarifa de envio\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Ingresos]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\precio compras cliente por dia\Ordenar.Outputs[Salida de ordenación].Columns[Columna derivada 1]"
+                      refId="Package\Suma ingreso y tarifa de envio\Ordenar.Outputs[Salida de ordenación].Columns[Total venta unica]"
                       dataType="cy"
-                      lineageId="Package\precio compras cliente por dia\Ordenar.Outputs[Salida de ordenación].Columns[Columna derivada 1]"
-                      name="Columna derivada 1">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\precio compras cliente por dia\Columna derivada.Outputs[Salida de columna derivada].Columns[Columna derivada 1]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\precio compras cliente por dia\Ordenar.Outputs[Salida de ordenación].Columns[Columna derivada 2]"
-                      dataType="cy"
-                      lineageId="Package\precio compras cliente por dia\Ordenar.Outputs[Salida de ordenación].Columns[Columna derivada 2]"
-                      name="Columna derivada 2">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\precio compras cliente por dia\Columna derivada.Outputs[Salida de columna derivada].Columns[Columna derivada 2]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\precio compras cliente por dia\Ordenar.Outputs[Salida de ordenación].Columns[Total venta unica]"
-                      dataType="cy"
-                      lineageId="Package\precio compras cliente por dia\Ordenar.Outputs[Salida de ordenación].Columns[Total venta unica]"
+                      lineageId="Package\Suma ingreso y tarifa de envio\Ordenar.Outputs[Salida de ordenación].Columns[Total venta unica]"
                       name="Total venta unica">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\precio compras cliente por dia\Columna derivada.Outputs[Salida de columna derivada].Columns[Total venta unica]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\precio compras cliente por dia\Ordenar.Outputs[Salida de ordenación].Columns[Columna derivada 3]"
-                      dataType="r8"
-                      lineageId="Package\precio compras cliente por dia\Ordenar.Outputs[Salida de ordenación].Columns[Columna derivada 3]"
-                      name="Columna derivada 3">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\precio compras cliente por dia\Columna derivada.Outputs[Salida de columna derivada].Columns[Columna derivada 3]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\precio compras cliente por dia\Ordenar.Outputs[Salida de ordenación].Columns[Columna derivada 4]"
-                      dataType="date"
-                      lineageId="Package\precio compras cliente por dia\Ordenar.Outputs[Salida de ordenación].Columns[Columna derivada 4]"
-                      name="Columna derivada 4">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\precio compras cliente por dia\Columna derivada.Outputs[Salida de columna derivada].Columns[Columna derivada 4]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\precio compras cliente por dia\Ordenar.Outputs[Salida de ordenación].Columns[Columna derivada 5]"
-                      dataType="r8"
-                      lineageId="Package\precio compras cliente por dia\Ordenar.Outputs[Salida de ordenación].Columns[Columna derivada 5]"
-                      name="Columna derivada 5">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\precio compras cliente por dia\Columna derivada.Outputs[Salida de columna derivada].Columns[Columna derivada 5]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\precio compras cliente por dia\Ordenar.Outputs[Salida de ordenación].Columns[Columna derivada 6]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\precio compras cliente por dia\Ordenar.Outputs[Salida de ordenación].Columns[Columna derivada 6]"
-                      name="Columna derivada 6">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\precio compras cliente por dia\Columna derivada.Outputs[Salida de columna derivada].Columns[Columna derivada 6]}</property>
+                          name="SortColumnId">#{Package\Suma ingreso y tarifa de envio\Columna derivada.Outputs[Salida de columna derivada].Columns[Total venta unica]}</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -849,7 +520,7 @@
               </outputs>
             </component>
             <component
-              refId="Package\precio compras cliente por dia\Origen de Excel"
+              refId="Package\Suma ingreso y tarifa de envio\Origen de Excel"
               componentClassID="Microsoft.ExcelSource"
               contactInfo="Origen de Excel;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
               description="Origen de Excel"
@@ -890,7 +561,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\precio compras cliente por dia\Origen de Excel.Connections[OleDbConnection]"
+                  refId="Package\Suma ingreso y tarifa de envio\Origen de Excel.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[Administrador de conexiones con Excel]"
                   connectionManagerRefId="Package.ConnectionManagers[Administrador de conexiones con Excel]"
                   description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
@@ -898,193 +569,193 @@
               </connections>
               <outputs>
                 <output
-                  refId="Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de origen de Excel]"
+                  refId="Package\Suma ingreso y tarifa de envio\Origen de Excel.Outputs[Salida de origen de Excel]"
                   name="Salida de origen de Excel">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Folio]"
+                      refId="Package\Suma ingreso y tarifa de envio\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Folio]"
                       dataType="r8"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Folio]"
-                      lineageId="Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Folio]"
+                      externalMetadataColumnId="Package\Suma ingreso y tarifa de envio\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Folio]"
+                      lineageId="Package\Suma ingreso y tarifa de envio\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Folio]"
                       name="Folio"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Fecha de orden]"
+                      refId="Package\Suma ingreso y tarifa de envio\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Fecha de orden]"
                       dataType="date"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Fecha de orden]"
-                      lineageId="Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Fecha de orden]"
+                      externalMetadataColumnId="Package\Suma ingreso y tarifa de envio\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Fecha de orden]"
+                      lineageId="Package\Suma ingreso y tarifa de envio\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Fecha de orden]"
                       name="Fecha de orden"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Num# cliente]"
+                      refId="Package\Suma ingreso y tarifa de envio\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Num# cliente]"
                       dataType="r8"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Num# cliente]"
-                      lineageId="Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Num# cliente]"
+                      externalMetadataColumnId="Package\Suma ingreso y tarifa de envio\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Num# cliente]"
+                      lineageId="Package\Suma ingreso y tarifa de envio\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Num# cliente]"
                       name="Num# cliente"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Nombre cliente]"
+                      refId="Package\Suma ingreso y tarifa de envio\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Nombre cliente]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Nombre cliente]"
+                      externalMetadataColumnId="Package\Suma ingreso y tarifa de envio\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Nombre cliente]"
                       length="255"
-                      lineageId="Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Nombre cliente]"
+                      lineageId="Package\Suma ingreso y tarifa de envio\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Nombre cliente]"
                       name="Nombre cliente"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Tarifa de envío]"
+                      refId="Package\Suma ingreso y tarifa de envio\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Tarifa de envío]"
                       dataType="cy"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Tarifa de envío]"
-                      lineageId="Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Tarifa de envío]"
+                      externalMetadataColumnId="Package\Suma ingreso y tarifa de envio\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Tarifa de envío]"
+                      lineageId="Package\Suma ingreso y tarifa de envio\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Tarifa de envío]"
                       name="Tarifa de envío"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Ingresos]"
+                      refId="Package\Suma ingreso y tarifa de envio\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Ingresos]"
                       dataType="cy"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Ingresos]"
-                      lineageId="Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Ingresos]"
+                      externalMetadataColumnId="Package\Suma ingreso y tarifa de envio\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Ingresos]"
+                      lineageId="Package\Suma ingreso y tarifa de envio\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Ingresos]"
                       name="Ingresos"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Folio]"
+                      refId="Package\Suma ingreso y tarifa de envio\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Folio]"
                       dataType="r8"
                       name="Folio" />
                     <externalMetadataColumn
-                      refId="Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Fecha de orden]"
+                      refId="Package\Suma ingreso y tarifa de envio\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Fecha de orden]"
                       dataType="date"
                       name="Fecha de orden" />
                     <externalMetadataColumn
-                      refId="Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Num# cliente]"
+                      refId="Package\Suma ingreso y tarifa de envio\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Num# cliente]"
                       dataType="r8"
                       name="Num# cliente" />
                     <externalMetadataColumn
-                      refId="Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Nombre cliente]"
+                      refId="Package\Suma ingreso y tarifa de envio\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Nombre cliente]"
                       dataType="wstr"
                       length="255"
                       name="Nombre cliente" />
                     <externalMetadataColumn
-                      refId="Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Ciudad]"
+                      refId="Package\Suma ingreso y tarifa de envio\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Ciudad]"
                       dataType="wstr"
                       length="255"
                       name="Ciudad" />
                     <externalMetadataColumn
-                      refId="Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Estado]"
+                      refId="Package\Suma ingreso y tarifa de envio\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Estado]"
                       dataType="wstr"
                       length="255"
                       name="Estado" />
                     <externalMetadataColumn
-                      refId="Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Vendedor]"
+                      refId="Package\Suma ingreso y tarifa de envio\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Vendedor]"
                       dataType="wstr"
                       length="255"
                       name="Vendedor" />
                     <externalMetadataColumn
-                      refId="Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Region]"
+                      refId="Package\Suma ingreso y tarifa de envio\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Region]"
                       dataType="wstr"
                       length="255"
                       name="Region" />
                     <externalMetadataColumn
-                      refId="Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Fecha de embarque]"
+                      refId="Package\Suma ingreso y tarifa de envio\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Fecha de embarque]"
                       dataType="date"
                       name="Fecha de embarque" />
                     <externalMetadataColumn
-                      refId="Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Empresa fletera]"
+                      refId="Package\Suma ingreso y tarifa de envio\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Empresa fletera]"
                       dataType="wstr"
                       length="255"
                       name="Empresa fletera" />
                     <externalMetadataColumn
-                      refId="Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Forma de pago]"
+                      refId="Package\Suma ingreso y tarifa de envio\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Forma de pago]"
                       dataType="wstr"
                       length="255"
                       name="Forma de pago" />
                     <externalMetadataColumn
-                      refId="Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Nombre del producto]"
+                      refId="Package\Suma ingreso y tarifa de envio\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Nombre del producto]"
                       dataType="wstr"
                       length="255"
                       name="Nombre del producto" />
                     <externalMetadataColumn
-                      refId="Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Categoría]"
+                      refId="Package\Suma ingreso y tarifa de envio\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Categoría]"
                       dataType="wstr"
                       length="255"
                       name="Categoría" />
                     <externalMetadataColumn
-                      refId="Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Precio unitario]"
+                      refId="Package\Suma ingreso y tarifa de envio\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Precio unitario]"
                       dataType="cy"
                       name="Precio unitario" />
                     <externalMetadataColumn
-                      refId="Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Cantidad]"
+                      refId="Package\Suma ingreso y tarifa de envio\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Cantidad]"
                       dataType="r8"
                       name="Cantidad" />
                     <externalMetadataColumn
-                      refId="Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Ingresos]"
+                      refId="Package\Suma ingreso y tarifa de envio\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Ingresos]"
                       dataType="cy"
                       name="Ingresos" />
                     <externalMetadataColumn
-                      refId="Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Tarifa de envío]"
+                      refId="Package\Suma ingreso y tarifa de envio\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Tarifa de envío]"
                       dataType="cy"
                       name="Tarifa de envío" />
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de error de origen de Excel]"
+                  refId="Package\Suma ingreso y tarifa de envio\Origen de Excel.Outputs[Salida de error de origen de Excel]"
                   isErrorOut="true"
                   name="Salida de error de origen de Excel">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[ErrorCode]"
+                      refId="Package\Suma ingreso y tarifa de envio\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[ErrorCode]"
+                      lineageId="Package\Suma ingreso y tarifa de envio\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[ErrorColumn]"
+                      refId="Package\Suma ingreso y tarifa de envio\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[ErrorColumn]"
+                      lineageId="Package\Suma ingreso y tarifa de envio\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                     <outputColumn
-                      refId="Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Folio]"
+                      refId="Package\Suma ingreso y tarifa de envio\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Folio]"
                       dataType="r8"
-                      lineageId="Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Folio]"
+                      lineageId="Package\Suma ingreso y tarifa de envio\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Folio]"
                       name="Folio" />
                     <outputColumn
-                      refId="Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Fecha de orden]"
+                      refId="Package\Suma ingreso y tarifa de envio\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Fecha de orden]"
                       dataType="date"
-                      lineageId="Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Fecha de orden]"
+                      lineageId="Package\Suma ingreso y tarifa de envio\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Fecha de orden]"
                       name="Fecha de orden" />
                     <outputColumn
-                      refId="Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Num# cliente]"
+                      refId="Package\Suma ingreso y tarifa de envio\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Num# cliente]"
                       dataType="r8"
-                      lineageId="Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Num# cliente]"
+                      lineageId="Package\Suma ingreso y tarifa de envio\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Num# cliente]"
                       name="Num# cliente" />
                     <outputColumn
-                      refId="Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Nombre cliente]"
+                      refId="Package\Suma ingreso y tarifa de envio\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Nombre cliente]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Nombre cliente]"
+                      lineageId="Package\Suma ingreso y tarifa de envio\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Nombre cliente]"
                       name="Nombre cliente" />
                     <outputColumn
-                      refId="Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Tarifa de envío]"
+                      refId="Package\Suma ingreso y tarifa de envio\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Tarifa de envío]"
                       dataType="cy"
-                      lineageId="Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Tarifa de envío]"
+                      lineageId="Package\Suma ingreso y tarifa de envio\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Tarifa de envío]"
                       name="Tarifa de envío" />
                     <outputColumn
-                      refId="Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Ingresos]"
+                      refId="Package\Suma ingreso y tarifa de envio\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Ingresos]"
                       dataType="cy"
-                      lineageId="Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Ingresos]"
+                      lineageId="Package\Suma ingreso y tarifa de envio\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Ingresos]"
                       name="Ingresos" />
                   </outputColumns>
                   <externalMetadataColumns />
@@ -1094,20 +765,20 @@
           </components>
           <paths>
             <path
-              refId="Package\precio compras cliente por dia.Paths[Salida de columna derivada]"
-              endId="Package\precio compras cliente por dia\Ordenar.Inputs[Entrada de ordenación]"
+              refId="Package\Suma ingreso y tarifa de envio.Paths[Salida de columna derivada]"
+              endId="Package\Suma ingreso y tarifa de envio\Ordenar.Inputs[Entrada de ordenación]"
               name="Salida de columna derivada"
-              startId="Package\precio compras cliente por dia\Columna derivada.Outputs[Salida de columna derivada]" />
+              startId="Package\Suma ingreso y tarifa de envio\Columna derivada.Outputs[Salida de columna derivada]" />
             <path
-              refId="Package\precio compras cliente por dia.Paths[Salida de ordenación]"
-              endId="Package\precio compras cliente por dia\Destino de Excel.Inputs[Entrada de destino de Excel]"
+              refId="Package\Suma ingreso y tarifa de envio.Paths[Salida de ordenación]"
+              endId="Package\Suma ingreso y tarifa de envio\Destino de Excel.Inputs[Entrada de destino de Excel]"
               name="Salida de ordenación"
-              startId="Package\precio compras cliente por dia\Ordenar.Outputs[Salida de ordenación]" />
+              startId="Package\Suma ingreso y tarifa de envio\Ordenar.Outputs[Salida de ordenación]" />
             <path
-              refId="Package\precio compras cliente por dia.Paths[Salida de origen de Excel]"
-              endId="Package\precio compras cliente por dia\Columna derivada.Inputs[Entrada de columna derivada]"
+              refId="Package\Suma ingreso y tarifa de envio.Paths[Salida de origen de Excel]"
+              endId="Package\Suma ingreso y tarifa de envio\Columna derivada.Inputs[Entrada de columna derivada]"
               name="Salida de origen de Excel"
-              startId="Package\precio compras cliente por dia\Origen de Excel.Outputs[Salida de origen de Excel]" />
+              startId="Package\Suma ingreso y tarifa de envio\Origen de Excel.Outputs[Salida de origen de Excel]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -1126,42 +797,42 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="216.8,41.6"
-          Id="Package\precio compras cliente por dia"
+          Size="218.4,41.6"
+          Id="Package\Suma ingreso y tarifa de envio"
           TopLeft="111.99999554952,56.1600004463196" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
   <TaskHost
-    design-time-name="Package\precio compras cliente por dia">
+    design-time-name="Package\Suma ingreso y tarifa de envio">
     <LayoutInfo>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="152,41.6"
-          Id="Package\precio compras cliente por dia\Origen de Excel"
-          TopLeft="195.333325571484,56.1600004463196" />
+          Id="Package\Suma ingreso y tarifa de envio\Origen de Excel"
+          TopLeft="329.999986886978,56.1600004463196" />
         <NodeLayout
           Size="116.8,41.6"
-          Id="Package\precio compras cliente por dia\Ordenar"
-          TopLeft="453.999981959662,140.960001024882" />
+          Id="Package\Suma ingreso y tarifa de envio\Ordenar"
+          TopLeft="588.666643275156,140.960001024882" />
         <NodeLayout
           Size="162.4,41.6"
-          Id="Package\precio compras cliente por dia\Columna derivada"
-          TopLeft="404.666650586659,64.480000512441" />
+          Id="Package\Suma ingreso y tarifa de envio\Columna derivada"
+          TopLeft="539.333311902153,64.480000512441" />
         <NodeLayout
           Size="156,41.6"
-          Id="Package\precio compras cliente por dia\Destino de Excel"
-          TopLeft="436.666649315093,236.160001520793" />
+          Id="Package\Suma ingreso y tarifa de envio\Destino de Excel"
+          TopLeft="571.333310630588,236.160001520793" />
         <EdgeLayout
-          Id="Package\precio compras cliente por dia.Paths[Salida de origen de Excel]"
-          TopLeft="347.333325571484,76.9600004463196">
+          Id="Package\Suma ingreso y tarifa de envio.Paths[Salida de origen de Excel]"
+          TopLeft="481.999986886978,76.9600004463196">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="57.3333250151745,8.32000006612142"
+              EndConnector="57.3333250151745,9.01333340496487"
               Start="0,0"
-              End="49.8333250151745,8.32000006612142">
+              End="49.8333250151745,9.01333340496487">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -1172,13 +843,13 @@
                     Point2="28.6666625075873,0"
                     Point3="28.6666625075873,4" />
                   <mssgle:LineSegment
-                    End="28.6666625075873,4.32000006612142" />
+                    End="28.6666625075873,5.01333340496487" />
                   <mssgle:CubicBezierSegment
-                    Point1="28.6666625075873,4.32000006612142"
-                    Point2="28.6666625075873,8.32000006612142"
-                    Point3="32.6666625075873,8.32000006612142" />
+                    Point1="28.6666625075873,5.01333340496487"
+                    Point2="28.6666625075873,9.01333340496487"
+                    Point3="32.6666625075873,9.01333340496487" />
                   <mssgle:LineSegment
-                    End="49.8333250151745,8.32000006612142" />
+                    End="49.8333250151745,9.01333340496487" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1188,30 +859,8 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\precio compras cliente por dia.Paths[Salida de ordenación]"
-          TopLeft="513.533315637378,182.560001024882">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,53.600000495911"
-              Start="0,0"
-              End="0,46.100000495911">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,46.100000495911" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\precio compras cliente por dia.Paths[Salida de columna derivada]"
-          TopLeft="485.866650586659,106.080000512441">
+          Id="Package\Suma ingreso y tarifa de envio.Paths[Salida de columna derivada]"
+          TopLeft="620.533311902153,106.080000512441">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1243,11 +892,33 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Suma ingreso y tarifa de envio.Paths[Salida de ordenación]"
+          TopLeft="648.199976952872,182.560001024882">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,53.600000495911"
+              Start="0,0"
+              End="0,46.100000495911">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46.100000495911" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\precio compras cliente por dia\Origen de Excel">
+    design-time-name="Package\Suma ingreso y tarifa de envio\Destino de Excel">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -1260,7 +931,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\precio compras cliente por dia\Destino de Excel">
+    design-time-name="Package\Suma ingreso y tarifa de envio\Origen de Excel">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
