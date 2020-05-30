@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="3"
-  DTS:VersionGUID="{723F1E2A-5114-4136-A9D8-E2B3F7CF21DC}">
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{71853382-1DDA-475C-87B4-FB881AADDEB8}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -23,7 +23,7 @@
       DTS:ObjectName="Administrador de conexiones con Excel">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:\etls.xls;Extended Properties=&quot;Excel 8.0;HDR=YES&quot;;" />
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:\etls.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -125,7 +125,8 @@
                     isUsed="True">
                     <externalMetadataColumn
                       refId="Package\Productos\Destino de Excel.Inputs[Entrada de destino de Excel].ExternalColumns[Nombre del producto]"
-                      dataType="nText"
+                      dataType="wstr"
+                      length="255"
                       name="Nombre del producto" />
                     <externalMetadataColumn
                       refId="Package\Productos\Destino de Excel.Inputs[Entrada de destino de Excel].ExternalColumns[Precio unitario]"
@@ -487,6 +488,10 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="156,41.6"
+          Id="Package\Productos\Destino de Excel"
+          TopLeft="494.666647010381,260.693335405138" />
+        <NodeLayout
           Size="152,41.6"
           Id="Package\Productos\Origen de Excel"
           TopLeft="223.333324458864,27.7333335537381" />
@@ -494,10 +499,6 @@
           Size="116.8,41.6"
           Id="Package\Productos\Ordenar"
           TopLeft="480.666647566691,165.013334644741" />
-        <NodeLayout
-          Size="156,41.6"
-          Id="Package\Productos\Destino de Excel"
-          TopLeft="494.666647010381,260.693335405138" />
         <EdgeLayout
           Id="Package\Productos.Paths[Salida de origen de Excel]"
           TopLeft="299.333324458864,69.3333335537381">
@@ -570,7 +571,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Productos\Origen de Excel">
+    design-time-name="Package\Productos\Destino de Excel">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -583,7 +584,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Productos\Destino de Excel">
+    design-time-name="Package\Productos\Origen de Excel">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

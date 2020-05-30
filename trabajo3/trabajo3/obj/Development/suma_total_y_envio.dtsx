@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="9"
-  DTS:VersionGUID="{8FBD19FB-C539-4EDA-9368-BA9E62A22504}">
+  DTS:VersionBuild="10"
+  DTS:VersionGUID="{EFB25885-20BB-45B8-9919-C530C8BF05D1}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -809,9 +809,9 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="152,41.6"
-          Id="Package\Suma ingreso y tarifa de envio\Origen de Excel"
-          TopLeft="329.999986886978,56.1600004463196" />
+          Size="156,41.6"
+          Id="Package\Suma ingreso y tarifa de envio\Destino de Excel"
+          TopLeft="571.333310630588,236.160001520793" />
         <NodeLayout
           Size="116.8,41.6"
           Id="Package\Suma ingreso y tarifa de envio\Ordenar"
@@ -821,9 +821,9 @@
           Id="Package\Suma ingreso y tarifa de envio\Columna derivada"
           TopLeft="539.333311902153,64.480000512441" />
         <NodeLayout
-          Size="156,41.6"
-          Id="Package\Suma ingreso y tarifa de envio\Destino de Excel"
-          TopLeft="571.333310630588,236.160001520793" />
+          Size="152,41.6"
+          Id="Package\Suma ingreso y tarifa de envio\Origen de Excel"
+          TopLeft="329.999986886978,56.1600004463196" />
         <EdgeLayout
           Id="Package\Suma ingreso y tarifa de envio.Paths[Salida de origen de Excel]"
           TopLeft="481.999986886978,76.9600004463196">
@@ -859,6 +859,28 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\Suma ingreso y tarifa de envio.Paths[Salida de ordenación]"
+          TopLeft="648.199976952872,182.560001024882">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,53.600000495911"
+              Start="0,0"
+              End="0,46.100000495911">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46.100000495911" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\Suma ingreso y tarifa de envio.Paths[Salida de columna derivada]"
           TopLeft="620.533311902153,106.080000512441">
           <EdgeLayout.Curve>
@@ -884,28 +906,6 @@
                     Point3="26.5333313730028,21.4400002562205" />
                   <mssgle:LineSegment
                     End="26.5333313730028,27.380000512441" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Suma ingreso y tarifa de envio.Paths[Salida de ordenación]"
-          TopLeft="648.199976952872,182.560001024882">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,53.600000495911"
-              Start="0,0"
-              End="0,46.100000495911">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,46.100000495911" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

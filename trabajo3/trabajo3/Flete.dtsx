@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="5/29/2020 9:17:11 PM"
@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="3"
-  DTS:VersionGUID="{62560BDE-11FB-41F0-84B1-9D0AB4DF2A6B}">
+  DTS:VersionBuild="16"
+  DTS:VersionGUID="{249229BF-B6EC-428F-AFF2-55BB8B5EB972}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -44,20 +44,20 @@
           version="1">
           <components>
             <component
-              refId="Package\Tarea Flujo de datos\Columna derivada"
+              refId="Package\Tarea Flujo de datos\CAMBIAR A"
               componentClassID="Microsoft.DerivedColumn"
               contactInfo="Columna derivada;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
               description="Crea nuevos valores de columna aplicando expresiones a las columnas de entrada de la transformación. Crea nuevas columnas o sobrescribe las columnas existentes. Por ejemplo, se concatenan los valores de las columnas 'nombre' y 'apellidos' para crear una columna 'nombre completo'."
-              name="Columna derivada"
+              name="CAMBIAR A"
               usesDispositions="true">
               <inputs>
                 <input
-                  refId="Package\Tarea Flujo de datos\Columna derivada.Inputs[Entrada de columna derivada]"
+                  refId="Package\Tarea Flujo de datos\CAMBIAR A.Inputs[Entrada de columna derivada]"
                   description="Entrada en la transformación Columna derivada"
                   name="Entrada de columna derivada">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Tarea Flujo de datos\Columna derivada.Inputs[Entrada de columna derivada].Columns[Empresa fletera]"
+                      refId="Package\Tarea Flujo de datos\CAMBIAR A.Inputs[Entrada de columna derivada].Columns[Empresa fletera]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="Empresa fletera"
@@ -86,31 +86,181 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Tarea Flujo de datos\Columna derivada.Outputs[Salida de columna derivada]"
+                  refId="Package\Tarea Flujo de datos\CAMBIAR A.Outputs[Salida de columna derivada]"
                   description="Salida predeterminada de la transformación Columna derivada"
                   exclusionGroup="1"
                   name="Salida de columna derivada"
-                  synchronousInputId="Package\Tarea Flujo de datos\Columna derivada.Inputs[Entrada de columna derivada]">
+                  synchronousInputId="Package\Tarea Flujo de datos\CAMBIAR A.Inputs[Entrada de columna derivada]">
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Tarea Flujo de datos\Columna derivada.Outputs[Salida de error de columna derivada]"
+                  refId="Package\Tarea Flujo de datos\CAMBIAR A.Outputs[Salida de error de columna derivada]"
                   description="Salida de error de la transformación Columna derivada"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Salida de error de columna derivada"
-                  synchronousInputId="Package\Tarea Flujo de datos\Columna derivada.Inputs[Entrada de columna derivada]">
+                  synchronousInputId="Package\Tarea Flujo de datos\CAMBIAR A.Inputs[Entrada de columna derivada]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      refId="Package\Tarea Flujo de datos\CAMBIAR A.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Tarea Flujo de datos\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      lineageId="Package\Tarea Flujo de datos\CAMBIAR A.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      refId="Package\Tarea Flujo de datos\CAMBIAR A.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Tarea Flujo de datos\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      lineageId="Package\Tarea Flujo de datos\CAMBIAR A.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Flujo de datos\CAMBIAR B"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Columna derivada;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Crea nuevos valores de columna aplicando expresiones a las columnas de entrada de la transformación. Crea nuevas columnas o sobrescribe las columnas existentes. Por ejemplo, se concatenan los valores de las columnas 'nombre' y 'apellidos' para crear una columna 'nombre completo'."
+              name="CAMBIAR B"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Tarea Flujo de datos\CAMBIAR B.Inputs[Entrada de columna derivada]"
+                  description="Entrada en la transformación Columna derivada"
+                  name="Entrada de columna derivada">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\CAMBIAR B.Inputs[Entrada de columna derivada].Columns[Empresa fletera]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Empresa fletera"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Empresa fletera]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">[REPLACE](#{Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Empresa fletera]},"B","2")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACE([Empresa fletera],"B","2")</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos\CAMBIAR B.Outputs[Salida de columna derivada]"
+                  description="Salida predeterminada de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  name="Salida de columna derivada"
+                  synchronousInputId="Package\Tarea Flujo de datos\CAMBIAR B.Inputs[Entrada de columna derivada]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tarea Flujo de datos\CAMBIAR B.Outputs[Salida de error de columna derivada]"
+                  description="Salida de error de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de columna derivada"
+                  synchronousInputId="Package\Tarea Flujo de datos\CAMBIAR B.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\CAMBIAR B.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\CAMBIAR B.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\CAMBIAR B.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\CAMBIAR B.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Flujo de datos\CAMBIAR C"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Columna derivada;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Crea nuevos valores de columna aplicando expresiones a las columnas de entrada de la transformación. Crea nuevas columnas o sobrescribe las columnas existentes. Por ejemplo, se concatenan los valores de las columnas 'nombre' y 'apellidos' para crear una columna 'nombre completo'."
+              name="CAMBIAR C"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Tarea Flujo de datos\CAMBIAR C.Inputs[Entrada de columna derivada]"
+                  description="Entrada en la transformación Columna derivada"
+                  name="Entrada de columna derivada">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\CAMBIAR C.Inputs[Entrada de columna derivada].Columns[Empresa fletera]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Empresa fletera"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Empresa fletera]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">[REPLACE](#{Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Empresa fletera]},"C","3")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACE([Empresa fletera],"C","3")</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos\CAMBIAR C.Outputs[Salida de columna derivada]"
+                  description="Salida predeterminada de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  name="Salida de columna derivada"
+                  synchronousInputId="Package\Tarea Flujo de datos\CAMBIAR C.Inputs[Entrada de columna derivada]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tarea Flujo de datos\CAMBIAR C.Outputs[Salida de error de columna derivada]"
+                  description="Salida de error de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de columna derivada"
+                  synchronousInputId="Package\Tarea Flujo de datos\CAMBIAR C.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\CAMBIAR C.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\CAMBIAR C.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\CAMBIAR C.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\CAMBIAR C.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -133,7 +283,7 @@
                 <property
                   dataType="System.String"
                   description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
-                  name="OpenRowset">Flete$</property>
+                  name="OpenRowset">FLETE$</property>
                 <property
                   dataType="System.String"
                   description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
@@ -186,8 +336,9 @@
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="Empresa fletera"
+                      cachedSortKeyPosition="1"
                       externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de Excel.Inputs[Entrada de destino de Excel].ExternalColumns[Empresa fletera]"
-                      lineageId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Empresa fletera]" />
+                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Empresa fletera]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -218,6 +369,76 @@
                       lineageId="Package\Tarea Flujo de datos\Destino de Excel.Outputs[Salida de error de destino de Excel].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Flujo de datos\Ordenar"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Ordenar;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Ordena los datos de entrada de manera ascendente o descendente cuando no es posible ordenarlos en su origen. Por ejemplo, se ordenan los datos de ventas por 'id. de cliente' antes de que se escriban en un archivo plano y se entreguen a otro departamento. Nota: no se recomienda realizar esta transformación para grandes flujos de datos."
+              name="Ordenar"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si la transformación Ordenar quita filas con valores de ordenación duplicados."
+                  name="EliminateDuplicates">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el número máximo de subprocesos que se deben usar para la ordenación."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Tarea Flujo de datos\Ordenar.Inputs[Entrada de ordenación]"
+                  name="Entrada de ordenación">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Ordenar.Inputs[Entrada de ordenación].Columns[Empresa fletera]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Empresa fletera"
+                      lineageId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Empresa fletera]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación]"
+                  isSorted="true"
+                  name="Salida de ordenación">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Empresa fletera]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Empresa fletera]"
+                      name="Empresa fletera"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Empresa fletera]}</property>
+                      </properties>
+                    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -400,12 +621,27 @@
           <paths>
             <path
               refId="Package\Tarea Flujo de datos.Paths[Salida de columna derivada]"
-              endId="Package\Tarea Flujo de datos\Destino de Excel.Inputs[Entrada de destino de Excel]"
+              endId="Package\Tarea Flujo de datos\CAMBIAR C.Inputs[Entrada de columna derivada]"
               name="Salida de columna derivada"
-              startId="Package\Tarea Flujo de datos\Columna derivada.Outputs[Salida de columna derivada]" />
+              startId="Package\Tarea Flujo de datos\CAMBIAR B.Outputs[Salida de columna derivada]" />
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[Salida de columna derivada1]"
+              endId="Package\Tarea Flujo de datos\CAMBIAR B.Inputs[Entrada de columna derivada]"
+              name="Salida de columna derivada"
+              startId="Package\Tarea Flujo de datos\CAMBIAR A.Outputs[Salida de columna derivada]" />
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[Salida de columna derivada2]"
+              endId="Package\Tarea Flujo de datos\Ordenar.Inputs[Entrada de ordenación]"
+              name="Salida de columna derivada"
+              startId="Package\Tarea Flujo de datos\CAMBIAR C.Outputs[Salida de columna derivada]" />
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[Salida de ordenación]"
+              endId="Package\Tarea Flujo de datos\Destino de Excel.Inputs[Entrada de destino de Excel]"
+              name="Salida de ordenación"
+              startId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación]" />
             <path
               refId="Package\Tarea Flujo de datos.Paths[Salida de origen de Excel]"
-              endId="Package\Tarea Flujo de datos\Columna derivada.Inputs[Entrada de columna derivada]"
+              endId="Package\Tarea Flujo de datos\CAMBIAR A.Inputs[Entrada de columna derivada]"
               name="Salida de origen de Excel"
               startId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel]" />
           </paths>
@@ -436,41 +672,45 @@
     design-time-name="Package\Tarea Flujo de datos">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="156,41.6"
+          Id="Package\Tarea Flujo de datos\Destino de Excel"
+          TopLeft="169.18517846237,372.397039996583" />
         <NodeLayout
           Size="152,41.6"
           Id="Package\Tarea Flujo de datos\Origen de Excel"
           TopLeft="101.999995946884,52.0000004132589" />
         <NodeLayout
-          Size="162.4,41.6"
-          Id="Package\Tarea Flujo de datos\Columna derivada"
-          TopLeft="399.999984105429,119.253334281074" />
+          Size="135.2,41.6"
+          Id="Package\Tarea Flujo de datos\CAMBIAR A"
+          TopLeft="207.999991734823,128.266667686039" />
         <EdgeLayout
           Id="Package\Tarea Flujo de datos.Paths[Salida de origen de Excel]"
           TopLeft="177.999995946884,93.6000004132589">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="303.199988158544,25.6533338678148"
+              EndConnector="97.5999957879392,34.66666727278"
               Start="0,0"
-              End="303.199988158544,18.1533338678148">
+              End="97.5999957879392,27.16666727278">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,8.82666693390741" />
+                    End="0,13.33333363639" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,8.82666693390741"
-                    Point2="0,12.8266669339074"
-                    Point3="4,12.8266669339074" />
+                    Point1="0,13.33333363639"
+                    Point2="0,17.33333363639"
+                    Point3="4,17.33333363639" />
                   <mssgle:LineSegment
-                    End="299.199988158544,12.8266669339074" />
+                    End="93.5999957879392,17.33333363639" />
                   <mssgle:CubicBezierSegment
-                    Point1="299.199988158544,12.8266669339074"
-                    Point2="303.199988158544,12.8266669339074"
-                    Point3="303.199988158544,16.8266669339074" />
+                    Point1="93.5999957879392,17.33333363639"
+                    Point2="97.5999957879392,17.33333363639"
+                    Point3="97.5999957879392,21.33333363639" />
                   <mssgle:LineSegment
-                    End="303.199988158544,18.1533338678148" />
+                    End="97.5999957879392,27.16666727278" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -480,35 +720,133 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
-          Size="156,41.6"
-          Id="Package\Tarea Flujo de datos\Destino de Excel"
-          TopLeft="416.666650109822,249.600001983643" />
+          Size="136,41.6"
+          Id="Package\Tarea Flujo de datos\CAMBIAR C"
+          TopLeft="417.333316749997,234.720001057943" />
+        <NodeLayout
+          Size="135.2,41.6"
+          Id="Package\Tarea Flujo de datos\CAMBIAR B"
+          TopLeft="374.666651778751,125.173333520678" />
         <EdgeLayout
           Id="Package\Tarea Flujo de datos.Paths[Salida de columna derivada]"
-          TopLeft="481.199984105429,160.853334281074">
+          TopLeft="442.266651778751,166.773333520678">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="13.4666660043928,88.7466677025689"
+              EndConnector="43.0666649712459,67.9466675372653"
               Start="0,0"
-              End="13.4666660043928,81.2466677025689">
+              End="43.0666649712459,60.4466675372653">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,40.3733338512845" />
+                    End="0,29.9733337686327" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,40.3733338512845"
-                    Point2="0,44.3733338512845"
-                    Point3="4,44.3733338512845" />
+                    Point1="0,29.9733337686327"
+                    Point2="0,33.9733337686327"
+                    Point3="4,33.9733337686327" />
                   <mssgle:LineSegment
-                    End="9.46666600439283,44.3733338512845" />
+                    End="39.0666649712459,33.9733337686327" />
                   <mssgle:CubicBezierSegment
-                    Point1="9.46666600439283,44.3733338512845"
-                    Point2="13.4666660043928,44.3733338512845"
-                    Point3="13.4666660043928,48.3733338512845" />
+                    Point1="39.0666649712459,33.9733337686327"
+                    Point2="43.0666649712459,33.9733337686327"
+                    Point3="43.0666649712459,37.9733337686327" />
                   <mssgle:LineSegment
-                    End="13.4666660043928,81.2466677025689" />
+                    End="43.0666649712459,60.4466675372653" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Salida de columna derivada1]"
+          TopLeft="343.199991734823,147.520000603358">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="31.466660043928,0"
+              Start="0,0"
+              End="23.966660043928,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="23.966660043928,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="116.8,41.6"
+          Id="Package\Tarea Flujo de datos\Ordenar"
+          TopLeft="225.999991019567,281.013334810045" />
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Salida de ordenación]"
+          TopLeft="284.399991019567,322.613334810045">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-37.2148125571968,49.7837051865384"
+              Start="0,0"
+              End="-37.2148125571968,42.2837051865384">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.8918525932692" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.8918525932692"
+                    Point2="0,24.8918525932692"
+                    Point3="-4,24.8918525932692" />
+                  <mssgle:LineSegment
+                    End="-33.2148125571968,24.8918525932692" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-33.2148125571968,24.8918525932692"
+                    Point2="-37.2148125571968,24.8918525932692"
+                    Point3="-37.2148125571968,28.8918525932692" />
+                  <mssgle:LineSegment
+                    End="-37.2148125571968,42.2837051865384" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Salida de columna derivada2]"
+          TopLeft="417.333316749997,255.520001057943">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-74.5333257304298,46.293333752102"
+              Start="0,0"
+              End="-67.0333257304298,46.293333752102">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-33.2666628652149,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-33.2666628652149,0"
+                    Point2="-37.2666628652149,0"
+                    Point3="-37.2666628652149,4" />
+                  <mssgle:LineSegment
+                    End="-37.2666628652149,42.293333752102" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-37.2666628652149,42.293333752102"
+                    Point2="-37.2666628652149,46.293333752102"
+                    Point3="-41.2666628652149,46.293333752102" />
+                  <mssgle:LineSegment
+                    End="-67.0333257304298,46.293333752102" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -521,7 +859,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Tarea Flujo de datos\Origen de Excel">
+    design-time-name="Package\Tarea Flujo de datos\Destino de Excel">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -534,7 +872,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Tarea Flujo de datos\Destino de Excel">
+    design-time-name="Package\Tarea Flujo de datos\Origen de Excel">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
