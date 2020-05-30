@@ -2,7 +2,7 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>trabajo3</Name>
-    <LastWriteTime>2020-05-30T02:24:12.6469916Z</LastWriteTime>
+    <LastWriteTime>2020-05-30T03:52:34.2156482Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
@@ -34,6 +34,11 @@
     <ProjectBuildItemInfo>
       <Name>VENTAS_DIA.dtsx</Name>
       <LastWriteTime>2020-05-30T02:32:33.5679386Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>Union_bases_de_dato.dtsx</Name>
+      <LastWriteTime>2020-05-30T04:20:55.5980465Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>

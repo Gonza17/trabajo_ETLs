@@ -1,0 +1,1551 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/29/2020 11:27:37 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="PC"
+  DTS:CreatorName="PC\Pc"
+  DTS:DTSID="{043379E2-3BCA-4DC9-AE4D-A3EEC148180E}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.121"
+  DTS:LocaleID="3082"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{5B0C8AD1-07C4-470F-859E-EC0202BCEF69}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Administrador de conexiones con Excel]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{183C06F0-6DE0-4F27-AA7E-BBC615B61454}"
+      DTS:ObjectName="Administrador de conexiones con Excel">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Supertienda.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Administrador de conexiones con Excel 1]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{14D893B2-1610-4861-9355-5B4E3F0C3016}"
+      DTS:ObjectName="Administrador de conexiones con Excel 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:\etls.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Tarea Flujo de datos"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{DFA25C44-FF2F-4DEA-9B01-4C455AAE5CA8}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tarea Flujo de datos"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Tarea Flujo de datos\Columna derivada"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Columna derivada;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Crea nuevos valores de columna aplicando expresiones a las columnas de entrada de la transformación. Crea nuevas columnas o sobrescribe las columnas existentes. Por ejemplo, se concatenan los valores de las columnas 'nombre' y 'apellidos' para crear una columna 'nombre completo'."
+              name="Columna derivada"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Tarea Flujo de datos\Columna derivada.Inputs[Entrada de columna derivada]"
+                  description="Entrada en la transformación Columna derivada"
+                  name="Entrada de columna derivada">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Columna derivada.Inputs[Entrada de columna derivada].Columns[Total]"
+                      cachedDataType="r8"
+                      cachedName="Total"
+                      lineageId="Package\Tarea Flujo de datos\Supertienda.Outputs[Salida de origen de Excel].Columns[Total]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Columna derivada.Inputs[Entrada de columna derivada].Columns[Cantidad]"
+                      cachedDataType="r8"
+                      cachedName="Cantidad"
+                      lineageId="Package\Tarea Flujo de datos\Supertienda.Outputs[Salida de origen de Excel].Columns[Cantidad]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Columna derivada.Inputs[Entrada de columna derivada].Columns[Descuento]"
+                      cachedDataType="r8"
+                      cachedName="Descuento"
+                      lineageId="Package\Tarea Flujo de datos\Supertienda.Outputs[Salida de origen de Excel].Columns[Descuento]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos\Columna derivada.Outputs[Salida de columna derivada]"
+                  description="Salida predeterminada de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  name="Salida de columna derivada"
+                  synchronousInputId="Package\Tarea Flujo de datos\Columna derivada.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Columna derivada.Outputs[Salida de columna derivada].Columns[Precio Unitario]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Tarea Flujo de datos\Columna derivada.Outputs[Salida de columna derivada].Columns[Precio Unitario]"
+                      name="Precio Unitario"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">(#{Package\Tarea Flujo de datos\Supertienda.Outputs[Salida de origen de Excel].Columns[Total]} - #{Package\Tarea Flujo de datos\Supertienda.Outputs[Salida de origen de Excel].Columns[Descuento]}) / #{Package\Tarea Flujo de datos\Supertienda.Outputs[Salida de origen de Excel].Columns[Cantidad]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(Total - Descuento) / Cantidad</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tarea Flujo de datos\Columna derivada.Outputs[Salida de error de columna derivada]"
+                  description="Salida de error de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de columna derivada"
+                  synchronousInputId="Package\Tarea Flujo de datos\Columna derivada.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Flujo de datos\Conversión de datos"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Conversión de datos;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Conversión de datos"
+              name="Conversión de datos"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Tarea Flujo de datos\Conversión de datos.Inputs[Entrada de conversión de datos]"
+                  name="Entrada de conversión de datos">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[Precio Unitario]"
+                      cachedDataType="r8"
+                      cachedName="Precio Unitario"
+                      lineageId="Package\Tarea Flujo de datos\Columna derivada.Outputs[Salida de columna derivada].Columns[Precio Unitario]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos]"
+                  exclusionGroup="1"
+                  name="Salida de conversión de datos"
+                  synchronousInputId="Package\Tarea Flujo de datos\Conversión de datos.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de Precio Unitario]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de Precio Unitario]"
+                      name="Copia de Precio Unitario"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos\Columna derivada.Outputs[Salida de columna derivada].Columns[Precio Unitario]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de error de conversión de datos]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de conversión de datos"
+                  synchronousInputId="Package\Tarea Flujo de datos\Conversión de datos.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Flujo de datos\Destino de Excel"
+              componentClassID="Microsoft.ExcelDestination"
+              contactInfo="Destino de Excel;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Destino de Excel"
+              name="Destino de Excel"
+              usesDispositions="true">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">Union_de_Productos$</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tarea Flujo de datos\Destino de Excel.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Administrador de conexiones con Excel 1]"
+                  connectionManagerRefId="Package.ConnectionManagers[Administrador de conexiones con Excel 1]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Tarea Flujo de datos\Destino de Excel.Inputs[Entrada de destino de Excel]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de Excel">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de Excel.Inputs[Entrada de destino de Excel].Columns[Nombre del producto]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Nombre del producto"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de Excel.Inputs[Entrada de destino de Excel].ExternalColumns[Nombre del producto]"
+                      lineageId="Package\Tarea Flujo de datos\Mezclar.Outputs[Salida de Mezclar 1].Columns[Nombre del producto]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de Excel.Inputs[Entrada de destino de Excel].Columns[Precio unitario]"
+                      cachedDataType="cy"
+                      cachedName="Precio unitario"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de Excel.Inputs[Entrada de destino de Excel].ExternalColumns[Precio unitario]"
+                      lineageId="Package\Tarea Flujo de datos\Mezclar.Outputs[Salida de Mezclar 1].Columns[Precio unitario]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de Excel.Inputs[Entrada de destino de Excel].ExternalColumns[Nombre del producto]"
+                      dataType="wstr"
+                      length="255"
+                      name="Nombre del producto" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de Excel.Inputs[Entrada de destino de Excel].ExternalColumns[Precio unitario]"
+                      dataType="cy"
+                      name="Precio unitario" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos\Destino de Excel.Outputs[Salida de error de destino de Excel]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de Excel"
+                  synchronousInputId="Package\Tarea Flujo de datos\Destino de Excel.Inputs[Entrada de destino de Excel]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de Excel.Outputs[Salida de error de destino de Excel].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Destino de Excel.Outputs[Salida de error de destino de Excel].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de Excel.Outputs[Salida de error de destino de Excel].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Destino de Excel.Outputs[Salida de error de destino de Excel].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Flujo de datos\Mezclar"
+              componentClassID="Microsoft.Merge"
+              contactInfo="Mezclar;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Combina las filas de varios flujos de datos ordenados en un solo flujo de datos ordenados. A diferencia de la combinación de mezcla, todas las filas fluyen hacia la salida. Por ejemplo, se combinan dos listas ordenadas de clientes en una sola lista ordenada. Si el orden no es importante, use la transformación Unión de todo. "
+              name="Mezclar"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\Tarea Flujo de datos\Mezclar.Inputs[Entrada de Mezclar 1]"
+                  name="Entrada de Mezclar 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Mezclar.Inputs[Entrada de Mezclar 1].Columns[Nombre del producto]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Nombre del producto"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Nombre del producto]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\Tarea Flujo de datos\Mezclar.Outputs[Salida de Mezclar 1].Columns[Nombre del producto]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Mezclar.Inputs[Entrada de Mezclar 1].Columns[Precio unitario]"
+                      cachedDataType="cy"
+                      cachedName="Precio unitario"
+                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Precio unitario]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\Tarea Flujo de datos\Mezclar.Outputs[Salida de Mezclar 1].Columns[Precio unitario]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Tarea Flujo de datos\Mezclar.Inputs[Entrada de Mezclar 2]"
+                  name="Entrada de Mezclar 2">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Mezclar.Inputs[Entrada de Mezclar 2].Columns[Nombre del producto]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Nombre del producto"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Tarea Flujo de datos\Ordenar 2.Outputs[Salida de ordenación].Columns[Nombre del producto]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\Tarea Flujo de datos\Mezclar.Outputs[Salida de Mezclar 1].Columns[Nombre del producto]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Mezclar.Inputs[Entrada de Mezclar 2].Columns[Copia de Precio Unitario]"
+                      cachedDataType="cy"
+                      cachedName="Copia de Precio Unitario"
+                      lineageId="Package\Tarea Flujo de datos\Ordenar 2.Outputs[Salida de ordenación].Columns[Copia de Precio Unitario]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\Tarea Flujo de datos\Mezclar.Outputs[Salida de Mezclar 1].Columns[Precio unitario]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos\Mezclar.Outputs[Salida de Mezclar 1]"
+                  isSorted="true"
+                  name="Salida de Mezclar 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Mezclar.Outputs[Salida de Mezclar 1].Columns[Nombre del producto]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Mezclar.Outputs[Salida de Mezclar 1].Columns[Nombre del producto]"
+                      name="Nombre del producto"
+                      sortKeyPosition="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Mezclar.Outputs[Salida de Mezclar 1].Columns[Precio unitario]"
+                      dataType="cy"
+                      lineageId="Package\Tarea Flujo de datos\Mezclar.Outputs[Salida de Mezclar 1].Columns[Precio unitario]"
+                      name="Precio unitario" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Flujo de datos\Ordenar"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Ordenar;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Ordena los datos de entrada de manera ascendente o descendente cuando no es posible ordenarlos en su origen. Por ejemplo, se ordenan los datos de ventas por 'id. de cliente' antes de que se escriban en un archivo plano y se entreguen a otro departamento. Nota: no se recomienda realizar esta transformación para grandes flujos de datos."
+              name="Ordenar"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si la transformación Ordenar quita filas con valores de ordenación duplicados."
+                  name="EliminateDuplicates">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el número máximo de subprocesos que se deben usar para la ordenación."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Tarea Flujo de datos\Ordenar.Inputs[Entrada de ordenación]"
+                  name="Entrada de ordenación">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Ordenar.Inputs[Entrada de ordenación].Columns[Nombre del producto]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Nombre del producto"
+                      lineageId="Package\Tarea Flujo de datos\Repartos.Outputs[Salida de origen de Excel].Columns[Nombre del producto]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Ordenar.Inputs[Entrada de ordenación].Columns[Precio unitario]"
+                      cachedDataType="cy"
+                      cachedName="Precio unitario"
+                      lineageId="Package\Tarea Flujo de datos\Repartos.Outputs[Salida de origen de Excel].Columns[Precio unitario]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación]"
+                  isSorted="true"
+                  name="Salida de ordenación">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Nombre del producto]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Nombre del producto]"
+                      name="Nombre del producto"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Tarea Flujo de datos\Repartos.Outputs[Salida de origen de Excel].Columns[Nombre del producto]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Precio unitario]"
+                      dataType="cy"
+                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Precio unitario]"
+                      name="Precio unitario">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Tarea Flujo de datos\Repartos.Outputs[Salida de origen de Excel].Columns[Precio unitario]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Flujo de datos\Ordenar 2"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Ordenar;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Ordena los datos de entrada de manera ascendente o descendente cuando no es posible ordenarlos en su origen. Por ejemplo, se ordenan los datos de ventas por 'id. de cliente' antes de que se escriban en un archivo plano y se entreguen a otro departamento. Nota: no se recomienda realizar esta transformación para grandes flujos de datos."
+              name="Ordenar 2"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si la transformación Ordenar quita filas con valores de ordenación duplicados."
+                  name="EliminateDuplicates">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el número máximo de subprocesos que se deben usar para la ordenación."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Tarea Flujo de datos\Ordenar 2.Inputs[Entrada de ordenación]"
+                  name="Entrada de ordenación">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Ordenar 2.Inputs[Entrada de ordenación].Columns[Nombre del producto]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Nombre del producto"
+                      lineageId="Package\Tarea Flujo de datos\Supertienda.Outputs[Salida de origen de Excel].Columns[Nombre del producto]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Ordenar 2.Inputs[Entrada de ordenación].Columns[Total]"
+                      cachedDataType="r8"
+                      cachedName="Total"
+                      lineageId="Package\Tarea Flujo de datos\Supertienda.Outputs[Salida de origen de Excel].Columns[Total]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Ordenar 2.Inputs[Entrada de ordenación].Columns[Cantidad]"
+                      cachedDataType="r8"
+                      cachedName="Cantidad"
+                      lineageId="Package\Tarea Flujo de datos\Supertienda.Outputs[Salida de origen de Excel].Columns[Cantidad]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Ordenar 2.Inputs[Entrada de ordenación].Columns[Descuento]"
+                      cachedDataType="r8"
+                      cachedName="Descuento"
+                      lineageId="Package\Tarea Flujo de datos\Supertienda.Outputs[Salida de origen de Excel].Columns[Descuento]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Ordenar 2.Inputs[Entrada de ordenación].Columns[Precio Unitario]"
+                      cachedDataType="r8"
+                      cachedName="Precio Unitario"
+                      lineageId="Package\Tarea Flujo de datos\Columna derivada.Outputs[Salida de columna derivada].Columns[Precio Unitario]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Ordenar 2.Inputs[Entrada de ordenación].Columns[Copia de Precio Unitario]"
+                      cachedDataType="cy"
+                      cachedName="Copia de Precio Unitario"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de Precio Unitario]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos\Ordenar 2.Outputs[Salida de ordenación]"
+                  isSorted="true"
+                  name="Salida de ordenación">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ordenar 2.Outputs[Salida de ordenación].Columns[Nombre del producto]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Ordenar 2.Outputs[Salida de ordenación].Columns[Nombre del producto]"
+                      name="Nombre del producto"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Tarea Flujo de datos\Supertienda.Outputs[Salida de origen de Excel].Columns[Nombre del producto]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ordenar 2.Outputs[Salida de ordenación].Columns[Total]"
+                      dataType="r8"
+                      lineageId="Package\Tarea Flujo de datos\Ordenar 2.Outputs[Salida de ordenación].Columns[Total]"
+                      name="Total">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Tarea Flujo de datos\Supertienda.Outputs[Salida de origen de Excel].Columns[Total]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ordenar 2.Outputs[Salida de ordenación].Columns[Cantidad]"
+                      dataType="r8"
+                      lineageId="Package\Tarea Flujo de datos\Ordenar 2.Outputs[Salida de ordenación].Columns[Cantidad]"
+                      name="Cantidad">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Tarea Flujo de datos\Supertienda.Outputs[Salida de origen de Excel].Columns[Cantidad]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ordenar 2.Outputs[Salida de ordenación].Columns[Descuento]"
+                      dataType="r8"
+                      lineageId="Package\Tarea Flujo de datos\Ordenar 2.Outputs[Salida de ordenación].Columns[Descuento]"
+                      name="Descuento">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Tarea Flujo de datos\Supertienda.Outputs[Salida de origen de Excel].Columns[Descuento]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ordenar 2.Outputs[Salida de ordenación].Columns[Precio Unitario]"
+                      dataType="r8"
+                      lineageId="Package\Tarea Flujo de datos\Ordenar 2.Outputs[Salida de ordenación].Columns[Precio Unitario]"
+                      name="Precio Unitario">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Tarea Flujo de datos\Columna derivada.Outputs[Salida de columna derivada].Columns[Precio Unitario]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ordenar 2.Outputs[Salida de ordenación].Columns[Copia de Precio Unitario]"
+                      dataType="cy"
+                      lineageId="Package\Tarea Flujo de datos\Ordenar 2.Outputs[Salida de ordenación].Columns[Copia de Precio Unitario]"
+                      name="Copia de Precio Unitario">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de Precio Unitario]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Flujo de datos\Repartos"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Origen de Excel;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Origen de Excel"
+              name="Repartos"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">Hoja1$</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="La asignación de parámetros del comando SQL a variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tarea Flujo de datos\Repartos.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Administrador de conexiones con Excel 1]"
+                  connectionManagerRefId="Package.ConnectionManagers[Administrador de conexiones con Excel 1]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos\Repartos.Outputs[Salida de origen de Excel]"
+                  name="Salida de origen de Excel">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Repartos.Outputs[Salida de origen de Excel].Columns[Nombre del producto]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Repartos.Outputs[Salida de origen de Excel].ExternalColumns[Nombre del producto]"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Repartos.Outputs[Salida de origen de Excel].Columns[Nombre del producto]"
+                      name="Nombre del producto"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Repartos.Outputs[Salida de origen de Excel].Columns[Precio unitario]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Repartos.Outputs[Salida de origen de Excel].ExternalColumns[Precio unitario]"
+                      lineageId="Package\Tarea Flujo de datos\Repartos.Outputs[Salida de origen de Excel].Columns[Precio unitario]"
+                      name="Precio unitario"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Repartos.Outputs[Salida de origen de Excel].ExternalColumns[Folio]"
+                      dataType="r8"
+                      name="Folio" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Repartos.Outputs[Salida de origen de Excel].ExternalColumns[Fecha de orden]"
+                      dataType="date"
+                      name="Fecha de orden" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Repartos.Outputs[Salida de origen de Excel].ExternalColumns[Num# cliente]"
+                      dataType="r8"
+                      name="Num# cliente" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Repartos.Outputs[Salida de origen de Excel].ExternalColumns[Nombre cliente]"
+                      dataType="wstr"
+                      length="255"
+                      name="Nombre cliente" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Repartos.Outputs[Salida de origen de Excel].ExternalColumns[Ciudad]"
+                      dataType="wstr"
+                      length="255"
+                      name="Ciudad" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Repartos.Outputs[Salida de origen de Excel].ExternalColumns[Estado]"
+                      dataType="wstr"
+                      length="255"
+                      name="Estado" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Repartos.Outputs[Salida de origen de Excel].ExternalColumns[Vendedor]"
+                      dataType="wstr"
+                      length="255"
+                      name="Vendedor" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Repartos.Outputs[Salida de origen de Excel].ExternalColumns[Region]"
+                      dataType="wstr"
+                      length="255"
+                      name="Region" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Repartos.Outputs[Salida de origen de Excel].ExternalColumns[Fecha de embarque]"
+                      dataType="date"
+                      name="Fecha de embarque" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Repartos.Outputs[Salida de origen de Excel].ExternalColumns[Empresa fletera]"
+                      dataType="wstr"
+                      length="255"
+                      name="Empresa fletera" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Repartos.Outputs[Salida de origen de Excel].ExternalColumns[Forma de pago]"
+                      dataType="wstr"
+                      length="255"
+                      name="Forma de pago" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Repartos.Outputs[Salida de origen de Excel].ExternalColumns[Nombre del producto]"
+                      dataType="wstr"
+                      length="255"
+                      name="Nombre del producto" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Repartos.Outputs[Salida de origen de Excel].ExternalColumns[Categoría]"
+                      dataType="wstr"
+                      length="255"
+                      name="Categoría" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Repartos.Outputs[Salida de origen de Excel].ExternalColumns[Precio unitario]"
+                      dataType="cy"
+                      name="Precio unitario" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Repartos.Outputs[Salida de origen de Excel].ExternalColumns[Cantidad]"
+                      dataType="r8"
+                      name="Cantidad" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Repartos.Outputs[Salida de origen de Excel].ExternalColumns[Ingresos]"
+                      dataType="cy"
+                      name="Ingresos" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Repartos.Outputs[Salida de origen de Excel].ExternalColumns[Tarifa de envío]"
+                      dataType="cy"
+                      name="Tarifa de envío" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Tarea Flujo de datos\Repartos.Outputs[Salida de error de origen de Excel]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de Excel">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Repartos.Outputs[Salida de error de origen de Excel].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Repartos.Outputs[Salida de error de origen de Excel].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Repartos.Outputs[Salida de error de origen de Excel].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Repartos.Outputs[Salida de error de origen de Excel].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Repartos.Outputs[Salida de error de origen de Excel].Columns[Nombre del producto]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Repartos.Outputs[Salida de error de origen de Excel].Columns[Nombre del producto]"
+                      name="Nombre del producto" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Repartos.Outputs[Salida de error de origen de Excel].Columns[Precio unitario]"
+                      dataType="cy"
+                      lineageId="Package\Tarea Flujo de datos\Repartos.Outputs[Salida de error de origen de Excel].Columns[Precio unitario]"
+                      name="Precio unitario" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Flujo de datos\Supertienda"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Origen de Excel;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Origen de Excel"
+              name="Supertienda"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">Compras$</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="La asignación de parámetros del comando SQL a variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tarea Flujo de datos\Supertienda.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Administrador de conexiones con Excel]"
+                  connectionManagerRefId="Package.ConnectionManagers[Administrador de conexiones con Excel]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos\Supertienda.Outputs[Salida de origen de Excel]"
+                  name="Salida de origen de Excel">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Supertienda.Outputs[Salida de origen de Excel].Columns[Nombre del producto]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Supertienda.Outputs[Salida de origen de Excel].ExternalColumns[Nombre del producto]"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Supertienda.Outputs[Salida de origen de Excel].Columns[Nombre del producto]"
+                      name="Nombre del producto"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Supertienda.Outputs[Salida de origen de Excel].Columns[Total]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Supertienda.Outputs[Salida de origen de Excel].ExternalColumns[Total]"
+                      lineageId="Package\Tarea Flujo de datos\Supertienda.Outputs[Salida de origen de Excel].Columns[Total]"
+                      name="Total"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Supertienda.Outputs[Salida de origen de Excel].Columns[Cantidad]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Supertienda.Outputs[Salida de origen de Excel].ExternalColumns[Cantidad]"
+                      lineageId="Package\Tarea Flujo de datos\Supertienda.Outputs[Salida de origen de Excel].Columns[Cantidad]"
+                      name="Cantidad"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Supertienda.Outputs[Salida de origen de Excel].Columns[Descuento]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Supertienda.Outputs[Salida de origen de Excel].ExternalColumns[Descuento]"
+                      lineageId="Package\Tarea Flujo de datos\Supertienda.Outputs[Salida de origen de Excel].Columns[Descuento]"
+                      name="Descuento"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Supertienda.Outputs[Salida de origen de Excel].ExternalColumns[Id# de la fila]"
+                      dataType="r8"
+                      name="Id# de la fila" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Supertienda.Outputs[Salida de origen de Excel].ExternalColumns[Id# del pedido]"
+                      dataType="wstr"
+                      length="255"
+                      name="Id# del pedido" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Supertienda.Outputs[Salida de origen de Excel].ExternalColumns[Fecha del pedido]"
+                      dataType="date"
+                      name="Fecha del pedido" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Supertienda.Outputs[Salida de origen de Excel].ExternalColumns[Fecha de envío]"
+                      dataType="date"
+                      name="Fecha de envío" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Supertienda.Outputs[Salida de origen de Excel].ExternalColumns[Forma de envío]"
+                      dataType="wstr"
+                      length="255"
+                      name="Forma de envío" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Supertienda.Outputs[Salida de origen de Excel].ExternalColumns[Id# del cliente]"
+                      dataType="wstr"
+                      length="255"
+                      name="Id# del cliente" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Supertienda.Outputs[Salida de origen de Excel].ExternalColumns[Nombre del cliente]"
+                      dataType="wstr"
+                      length="255"
+                      name="Nombre del cliente" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Supertienda.Outputs[Salida de origen de Excel].ExternalColumns[Segmento]"
+                      dataType="wstr"
+                      length="255"
+                      name="Segmento" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Supertienda.Outputs[Salida de origen de Excel].ExternalColumns[Ciudad]"
+                      dataType="wstr"
+                      length="255"
+                      name="Ciudad" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Supertienda.Outputs[Salida de origen de Excel].ExternalColumns[Estado]"
+                      dataType="wstr"
+                      length="255"
+                      name="Estado" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Supertienda.Outputs[Salida de origen de Excel].ExternalColumns[País]"
+                      dataType="wstr"
+                      length="255"
+                      name="País" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Supertienda.Outputs[Salida de origen de Excel].ExternalColumns[Región]"
+                      dataType="wstr"
+                      length="255"
+                      name="Región" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Supertienda.Outputs[Salida de origen de Excel].ExternalColumns[Id# del producto]"
+                      dataType="wstr"
+                      length="255"
+                      name="Id# del producto" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Supertienda.Outputs[Salida de origen de Excel].ExternalColumns[Categoría]"
+                      dataType="wstr"
+                      length="255"
+                      name="Categoría" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Supertienda.Outputs[Salida de origen de Excel].ExternalColumns[Subcategoría]"
+                      dataType="wstr"
+                      length="255"
+                      name="Subcategoría" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Supertienda.Outputs[Salida de origen de Excel].ExternalColumns[Nombre del producto]"
+                      dataType="wstr"
+                      length="255"
+                      name="Nombre del producto" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Supertienda.Outputs[Salida de origen de Excel].ExternalColumns[Total]"
+                      dataType="r8"
+                      name="Total" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Supertienda.Outputs[Salida de origen de Excel].ExternalColumns[Cantidad]"
+                      dataType="r8"
+                      name="Cantidad" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Supertienda.Outputs[Salida de origen de Excel].ExternalColumns[Descuento]"
+                      dataType="r8"
+                      name="Descuento" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Supertienda.Outputs[Salida de origen de Excel].ExternalColumns[Ganancia]"
+                      dataType="r8"
+                      name="Ganancia" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Tarea Flujo de datos\Supertienda.Outputs[Salida de error de origen de Excel]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de Excel">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Supertienda.Outputs[Salida de error de origen de Excel].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Supertienda.Outputs[Salida de error de origen de Excel].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Supertienda.Outputs[Salida de error de origen de Excel].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Supertienda.Outputs[Salida de error de origen de Excel].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Supertienda.Outputs[Salida de error de origen de Excel].Columns[Nombre del producto]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Supertienda.Outputs[Salida de error de origen de Excel].Columns[Nombre del producto]"
+                      name="Nombre del producto" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Supertienda.Outputs[Salida de error de origen de Excel].Columns[Total]"
+                      dataType="r8"
+                      lineageId="Package\Tarea Flujo de datos\Supertienda.Outputs[Salida de error de origen de Excel].Columns[Total]"
+                      name="Total" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Supertienda.Outputs[Salida de error de origen de Excel].Columns[Cantidad]"
+                      dataType="r8"
+                      lineageId="Package\Tarea Flujo de datos\Supertienda.Outputs[Salida de error de origen de Excel].Columns[Cantidad]"
+                      name="Cantidad" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Supertienda.Outputs[Salida de error de origen de Excel].Columns[Descuento]"
+                      dataType="r8"
+                      lineageId="Package\Tarea Flujo de datos\Supertienda.Outputs[Salida de error de origen de Excel].Columns[Descuento]"
+                      name="Descuento" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[Salida de columna derivada]"
+              endId="Package\Tarea Flujo de datos\Conversión de datos.Inputs[Entrada de conversión de datos]"
+              name="Salida de columna derivada"
+              startId="Package\Tarea Flujo de datos\Columna derivada.Outputs[Salida de columna derivada]" />
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[Salida de conversión de datos]"
+              endId="Package\Tarea Flujo de datos\Ordenar 2.Inputs[Entrada de ordenación]"
+              name="Salida de conversión de datos"
+              startId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos]" />
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[Salida de Mezclar 1]"
+              endId="Package\Tarea Flujo de datos\Destino de Excel.Inputs[Entrada de destino de Excel]"
+              name="Salida de Mezclar 1"
+              startId="Package\Tarea Flujo de datos\Mezclar.Outputs[Salida de Mezclar 1]" />
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[Salida de ordenación]"
+              endId="Package\Tarea Flujo de datos\Mezclar.Inputs[Entrada de Mezclar 1]"
+              name="Salida de ordenación"
+              startId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación]" />
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[Salida de ordenación1]"
+              endId="Package\Tarea Flujo de datos\Mezclar.Inputs[Entrada de Mezclar 2]"
+              name="Salida de ordenación"
+              startId="Package\Tarea Flujo de datos\Ordenar 2.Outputs[Salida de ordenación]" />
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[Salida de origen de Excel]"
+              endId="Package\Tarea Flujo de datos\Columna derivada.Inputs[Entrada de columna derivada]"
+              name="Salida de origen de Excel"
+              startId="Package\Tarea Flujo de datos\Supertienda.Outputs[Salida de origen de Excel]" />
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[Salida de origen de Excel1]"
+              endId="Package\Tarea Flujo de datos\Ordenar.Inputs[Entrada de ordenación]"
+              name="Salida de origen de Excel"
+              startId="Package\Tarea Flujo de datos\Repartos.Outputs[Salida de origen de Excel]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="173.6,41.6"
+          Id="Package\Tarea Flujo de datos"
+          TopLeft="212.666658216053,65.8666671901279" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Tarea Flujo de datos">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="173.6,41.6"
+          Id="Package\Tarea Flujo de datos\Conversión de datos"
+          TopLeft="106.666662428114,192.74666819848" />
+        <NodeLayout
+          Size="134.4,41.6"
+          Id="Package\Tarea Flujo de datos\Supertienda"
+          TopLeft="122.4,46.4" />
+        <NodeLayout
+          Size="115.2,41.6"
+          Id="Package\Tarea Flujo de datos\Mezclar"
+          TopLeft="335.333320008384,240.000001239777" />
+        <NodeLayout
+          Size="156,41.6"
+          Id="Package\Tarea Flujo de datos\Destino de Excel"
+          TopLeft="565.999977509182,253.493334991879" />
+        <NodeLayout
+          Size="116.8,41.6"
+          Id="Package\Tarea Flujo de datos\Ordenar"
+          TopLeft="451.999982039134,134.50666773563" />
+        <NodeLayout
+          Size="120.8,41.6"
+          Id="Package\Tarea Flujo de datos\Repartos"
+          TopLeft="463.2,32.8" />
+        <NodeLayout
+          Size="124.8,41.6"
+          Id="Package\Tarea Flujo de datos\Ordenar 2"
+          TopLeft="147.999994119009,270.400002148946" />
+        <NodeLayout
+          Size="162.4,41.6"
+          Id="Package\Tarea Flujo de datos\Columna derivada"
+          TopLeft="117.333328670926,135.893334413317" />
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Salida de ordenación1]"
+          TopLeft="272.799994119009,291.200002148946">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="62.5333258893759,-30.4000009091695"
+              Start="0,0"
+              End="55.0333258893759,-30.4000009091695">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="27.2666629446879,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="27.2666629446879,0"
+                    Point2="31.2666629446879,0"
+                    Point3="31.2666629446879,-4" />
+                  <mssgle:LineSegment
+                    End="31.2666629446879,-26.4000009091695" />
+                  <mssgle:CubicBezierSegment
+                    Point1="31.2666629446879,-26.4000009091695"
+                    Point2="31.2666629446879,-30.4000009091695"
+                    Point3="35.2666629446879,-30.4000009091695" />
+                  <mssgle:LineSegment
+                    End="55.0333258893759,-30.4000009091695" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Salida de ordenación]"
+          TopLeft="510.399982039134,176.10666773563">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-117.46666203075,63.893333504147"
+              Start="0,0"
+              End="-117.46666203075,56.393333504147">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.9466667520735" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.9466667520735"
+                    Point2="0,31.9466667520735"
+                    Point3="-4,31.9466667520735" />
+                  <mssgle:LineSegment
+                    End="-113.46666203075,31.9466667520735" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-113.46666203075,31.9466667520735"
+                    Point2="-117.46666203075,31.9466667520735"
+                    Point3="-117.46666203075,35.9466667520735" />
+                  <mssgle:LineSegment
+                    End="-117.46666203075,56.393333504147" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Salida de Mezclar 1]"
+          TopLeft="450.533320008384,260.800001239777">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="115.466657500797,13.4933337521023"
+              Start="0,0"
+              End="107.966657500797,13.4933337521023">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="53.7333287503986,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="53.7333287503986,0"
+                    Point2="57.7333287503986,0"
+                    Point3="57.7333287503986,4" />
+                  <mssgle:LineSegment
+                    End="57.7333287503986,9.49333375210233" />
+                  <mssgle:CubicBezierSegment
+                    Point1="57.7333287503986,9.49333375210233"
+                    Point2="57.7333287503986,13.4933337521023"
+                    Point3="61.7333287503986,13.4933337521023" />
+                  <mssgle:LineSegment
+                    End="107.966657500797,13.4933337521023" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Salida de conversión de datos]"
+          TopLeft="193.466662428114,234.34666819848">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="16.9333316908943,36.0533339504665"
+              Start="0,0"
+              End="16.9333316908943,28.5533339504665">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.0266669752333" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.0266669752333"
+                    Point2="0,18.0266669752333"
+                    Point3="4,18.0266669752333" />
+                  <mssgle:LineSegment
+                    End="12.9333316908943,18.0266669752333" />
+                  <mssgle:CubicBezierSegment
+                    Point1="12.9333316908943,18.0266669752333"
+                    Point2="16.9333316908943,18.0266669752333"
+                    Point3="16.9333316908943,22.0266669752333" />
+                  <mssgle:LineSegment
+                    End="16.9333316908943,28.5533339504665" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Salida de columna derivada]"
+          TopLeft="279.733328670926,156.693334413317">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0.533333757188302,56.8533337851631"
+              Start="0,0"
+              End="8.0333337571883,56.8533337851631">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="19.0333337571883,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="19.0333337571883,0"
+                    Point2="23.0333337571883,0"
+                    Point3="23.0333337571883,4" />
+                  <mssgle:LineSegment
+                    End="23.0333337571883,52.8533337851631" />
+                  <mssgle:CubicBezierSegment
+                    Point1="23.0333337571883,52.8533337851631"
+                    Point2="23.0333337571883,56.8533337851631"
+                    Point3="19.0333337571883,56.8533337851631" />
+                  <mssgle:LineSegment
+                    End="8.0333337571883,56.8533337851631" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Salida de origen de Excel1]"
+          TopLeft="523.6,74.4">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-13.2000179608656,60.1066677356296"
+              Start="0,0"
+              End="-13.2000179608656,52.6066677356296">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.0533338678148" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.0533338678148"
+                    Point2="0,30.0533338678148"
+                    Point3="-4,30.0533338678148" />
+                  <mssgle:LineSegment
+                    End="-9.20001796086558,30.0533338678148" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-9.20001796086558,30.0533338678148"
+                    Point2="-13.2000179608656,30.0533338678148"
+                    Point3="-13.2000179608656,34.0533338678148" />
+                  <mssgle:LineSegment
+                    End="-13.2000179608656,52.6066677356296" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Salida de origen de Excel]"
+          TopLeft="189.6,88">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="8.93332867092596,47.8933344133165"
+              Start="0,0"
+              End="8.93332867092596,40.3933344133165">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.9466672066583" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.9466672066583"
+                    Point2="0,23.9466672066583"
+                    Point3="4,23.9466672066583" />
+                  <mssgle:LineSegment
+                    End="4.93332867092596,23.9466672066583" />
+                  <mssgle:CubicBezierSegment
+                    Point1="4.93332867092596,23.9466672066583"
+                    Point2="8.93332867092596,23.9466672066583"
+                    Point3="8.93332867092596,27.9466672066583" />
+                  <mssgle:LineSegment
+                    End="8.93332867092596,40.3933344133165" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tarea Flujo de datos\Supertienda">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tarea Flujo de datos\Destino de Excel">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tarea Flujo de datos\Repartos">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
