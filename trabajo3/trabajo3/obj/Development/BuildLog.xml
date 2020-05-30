@@ -2,7 +2,7 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>trabajo3</Name>
-    <LastWriteTime>2020-05-30T01:54:39.2578183Z</LastWriteTime>
+    <LastWriteTime>2020-05-30T02:24:12.6469916Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
@@ -18,7 +18,7 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Productos.dtsx</Name>
-      <LastWriteTime>2020-05-30T01:23:16.7265046Z</LastWriteTime>
+      <LastWriteTime>2020-05-30T02:24:12.6190674Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
@@ -29,6 +29,11 @@
     <ProjectBuildItemInfo>
       <Name>Forma_de_pago.dtsx</Name>
       <LastWriteTime>2020-05-30T02:01:38.9707737Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>VENTAS_DIA.dtsx</Name>
+      <LastWriteTime>2020-05-30T02:32:33.5679386Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
