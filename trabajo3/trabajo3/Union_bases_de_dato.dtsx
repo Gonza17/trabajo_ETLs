@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="9"
-  DTS:VersionGUID="{5B0C8AD1-07C4-470F-859E-EC0202BCEF69}">
+  DTS:VersionBuild="10"
+  DTS:VersionGUID="{D383A909-A7F5-4661-A2D7-C5153174A3CE}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1226,7 +1226,7 @@
         <NodeLayout
           Size="173.6,41.6"
           Id="Package\Tarea Flujo de datos"
-          TopLeft="212.666658216053,65.8666671901279" />
+          TopLeft="162.666660202874,40.2133336529202" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
