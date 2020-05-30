@@ -1,0 +1,711 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/30/2020 12:44:20 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="PC"
+  DTS:CreatorName="PC\Pc"
+  DTS:DTSID="{97089606-3943-4950-AB73-871782C32A7F}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.121"
+  DTS:LocaleID="3082"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{23951C48-4215-46FE-A0C1-9C41B3BE8F98}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Administrador de conexiones con Excel]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{BF2E36B9-ECF7-4265-BF33-1283A8A9C4C1}"
+      DTS:ObjectName="Administrador de conexiones con Excel">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:\etls.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Ventas por dia"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{308c4114-337b-412a-af39-3ff75659a483}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Ventas por dia"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Ventas por dia\Aggregate"
+              componentClassID="Microsoft.Aggregate"
+              contactInfo="Aggregate;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
+              description="Aggregates data with functions such as Average, Sum, Count, Max, and Min. For example, group data to compute the sum of sales per product or the average visits per day."
+              name="Aggregate"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
+                  name="KeyScale"
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence."
+                  name="Keys" />
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the approximate number of distinct values in a column that the aggregation counts distinctly. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no CountDistinctScale value is used."
+                  name="CountDistinctScale"
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the exact number of distinct values in a column that the aggregation counts distinctly. If a CountDistinctScale value is specified, the value in CountDistinctKeys takes precedence."
+                  name="CountDistinctKeys" />
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage by which memory can be extended during the aggregation. Valid values are between 1 and 100."
+                  name="AutoExtendFactor">25</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Ventas por dia\Aggregate.Inputs[Aggregate Input 1]"
+                  name="Aggregate Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Ventas por dia\Aggregate.Inputs[Aggregate Input 1].Columns[Folio]"
+                      cachedDataType="r8"
+                      cachedName="Folio"
+                      lineageId="Package\Ventas por dia\datos de folios y fechas.Outputs[Excel Source Output].Columns[Folio]" />
+                    <inputColumn
+                      refId="Package\Ventas por dia\Aggregate.Inputs[Aggregate Input 1].Columns[Fecha de orden]"
+                      cachedDataType="date"
+                      cachedName="Fecha de orden"
+                      lineageId="Package\Ventas por dia\datos de folios y fechas.Outputs[Excel Source Output].Columns[Fecha de orden]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Ventas por dia\Aggregate.Outputs[Aggregate Output 1]"
+                  name="Aggregate Output 1">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
+                      name="KeyScale"
+                      typeConverter="KeyScaleType">0</property>
+                    <property
+                      dataType="System.Null"
+                      description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence."
+                      name="Keys" />
+                  </properties>
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Ventas por dia\Aggregate.Outputs[Aggregate Output 1].Columns[contador de folios]"
+                      dataType="ui8"
+                      lineageId="Package\Ventas por dia\Aggregate.Outputs[Aggregate Output 1].Columns[contador de folios]"
+                      name="contador de folios">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Ventas por dia\datos de folios y fechas.Outputs[Excel Source Output].Columns[Folio]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Ventas por dia\Aggregate.Outputs[Aggregate Output 1].Columns[Fecha de orden]"
+                      dataType="date"
+                      lineageId="Package\Ventas por dia\Aggregate.Outputs[Aggregate Output 1].Columns[Fecha de orden]"
+                      name="Fecha de orden">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Ventas por dia\datos de folios y fechas.Outputs[Excel Source Output].Columns[Fecha de orden]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Ventas por dia\datos de folios y fechas"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="datos de folios y fechas"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">Hoja1$</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Ventas por dia\datos de folios y fechas.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Administrador de conexiones con Excel]"
+                  connectionManagerRefId="Package.ConnectionManagers[Administrador de conexiones con Excel]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Ventas por dia\datos de folios y fechas.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Ventas por dia\datos de folios y fechas.Outputs[Excel Source Output].Columns[Folio]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ventas por dia\datos de folios y fechas.Outputs[Excel Source Output].ExternalColumns[Folio]"
+                      lineageId="Package\Ventas por dia\datos de folios y fechas.Outputs[Excel Source Output].Columns[Folio]"
+                      name="Folio"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ventas por dia\datos de folios y fechas.Outputs[Excel Source Output].Columns[Fecha de orden]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ventas por dia\datos de folios y fechas.Outputs[Excel Source Output].ExternalColumns[Fecha de orden]"
+                      lineageId="Package\Ventas por dia\datos de folios y fechas.Outputs[Excel Source Output].Columns[Fecha de orden]"
+                      name="Fecha de orden"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Ventas por dia\datos de folios y fechas.Outputs[Excel Source Output].ExternalColumns[Folio]"
+                      dataType="r8"
+                      name="Folio" />
+                    <externalMetadataColumn
+                      refId="Package\Ventas por dia\datos de folios y fechas.Outputs[Excel Source Output].ExternalColumns[Fecha de orden]"
+                      dataType="date"
+                      name="Fecha de orden" />
+                    <externalMetadataColumn
+                      refId="Package\Ventas por dia\datos de folios y fechas.Outputs[Excel Source Output].ExternalColumns[Num# cliente]"
+                      dataType="r8"
+                      name="Num# cliente" />
+                    <externalMetadataColumn
+                      refId="Package\Ventas por dia\datos de folios y fechas.Outputs[Excel Source Output].ExternalColumns[Nombre cliente]"
+                      dataType="wstr"
+                      length="255"
+                      name="Nombre cliente" />
+                    <externalMetadataColumn
+                      refId="Package\Ventas por dia\datos de folios y fechas.Outputs[Excel Source Output].ExternalColumns[Ciudad]"
+                      dataType="wstr"
+                      length="255"
+                      name="Ciudad" />
+                    <externalMetadataColumn
+                      refId="Package\Ventas por dia\datos de folios y fechas.Outputs[Excel Source Output].ExternalColumns[Estado]"
+                      dataType="wstr"
+                      length="255"
+                      name="Estado" />
+                    <externalMetadataColumn
+                      refId="Package\Ventas por dia\datos de folios y fechas.Outputs[Excel Source Output].ExternalColumns[Vendedor]"
+                      dataType="wstr"
+                      length="255"
+                      name="Vendedor" />
+                    <externalMetadataColumn
+                      refId="Package\Ventas por dia\datos de folios y fechas.Outputs[Excel Source Output].ExternalColumns[Region]"
+                      dataType="wstr"
+                      length="255"
+                      name="Region" />
+                    <externalMetadataColumn
+                      refId="Package\Ventas por dia\datos de folios y fechas.Outputs[Excel Source Output].ExternalColumns[Fecha de embarque]"
+                      dataType="date"
+                      name="Fecha de embarque" />
+                    <externalMetadataColumn
+                      refId="Package\Ventas por dia\datos de folios y fechas.Outputs[Excel Source Output].ExternalColumns[Empresa fletera]"
+                      dataType="wstr"
+                      length="255"
+                      name="Empresa fletera" />
+                    <externalMetadataColumn
+                      refId="Package\Ventas por dia\datos de folios y fechas.Outputs[Excel Source Output].ExternalColumns[Forma de pago]"
+                      dataType="wstr"
+                      length="255"
+                      name="Forma de pago" />
+                    <externalMetadataColumn
+                      refId="Package\Ventas por dia\datos de folios y fechas.Outputs[Excel Source Output].ExternalColumns[Nombre del producto]"
+                      dataType="wstr"
+                      length="255"
+                      name="Nombre del producto" />
+                    <externalMetadataColumn
+                      refId="Package\Ventas por dia\datos de folios y fechas.Outputs[Excel Source Output].ExternalColumns[Categoría]"
+                      dataType="wstr"
+                      length="255"
+                      name="Categoría" />
+                    <externalMetadataColumn
+                      refId="Package\Ventas por dia\datos de folios y fechas.Outputs[Excel Source Output].ExternalColumns[Precio unitario]"
+                      dataType="cy"
+                      name="Precio unitario" />
+                    <externalMetadataColumn
+                      refId="Package\Ventas por dia\datos de folios y fechas.Outputs[Excel Source Output].ExternalColumns[Cantidad]"
+                      dataType="r8"
+                      name="Cantidad" />
+                    <externalMetadataColumn
+                      refId="Package\Ventas por dia\datos de folios y fechas.Outputs[Excel Source Output].ExternalColumns[Ingresos]"
+                      dataType="cy"
+                      name="Ingresos" />
+                    <externalMetadataColumn
+                      refId="Package\Ventas por dia\datos de folios y fechas.Outputs[Excel Source Output].ExternalColumns[Tarifa de envío]"
+                      dataType="cy"
+                      name="Tarifa de envío" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Ventas por dia\datos de folios y fechas.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Ventas por dia\datos de folios y fechas.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Ventas por dia\datos de folios y fechas.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Ventas por dia\datos de folios y fechas.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Ventas por dia\datos de folios y fechas.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Ventas por dia\datos de folios y fechas.Outputs[Excel Source Error Output].Columns[Folio]"
+                      dataType="r8"
+                      lineageId="Package\Ventas por dia\datos de folios y fechas.Outputs[Excel Source Error Output].Columns[Folio]"
+                      name="Folio" />
+                    <outputColumn
+                      refId="Package\Ventas por dia\datos de folios y fechas.Outputs[Excel Source Error Output].Columns[Fecha de orden]"
+                      dataType="date"
+                      lineageId="Package\Ventas por dia\datos de folios y fechas.Outputs[Excel Source Error Output].Columns[Fecha de orden]"
+                      name="Fecha de orden" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Ventas por dia\Excel Destination"
+              componentClassID="Microsoft.ExcelDestination"
+              contactInfo="Excel Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Excel Destination"
+              name="Excel Destination"
+              usesDispositions="true">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">Ventas_Por_Dia$</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Ventas por dia\Excel Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Administrador de conexiones con Excel]"
+                  connectionManagerRefId="Package.ConnectionManagers[Administrador de conexiones con Excel]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Ventas por dia\Excel Destination.Inputs[Excel Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Excel Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Ventas por dia\Excel Destination.Inputs[Excel Destination Input].Columns[contador de folios]"
+                      cachedDataType="ui8"
+                      cachedName="contador de folios"
+                      externalMetadataColumnId="Package\Ventas por dia\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[contador de folios]"
+                      lineageId="Package\Ventas por dia\Sort.Outputs[Sort Output].Columns[contador de folios]" />
+                    <inputColumn
+                      refId="Package\Ventas por dia\Excel Destination.Inputs[Excel Destination Input].Columns[Fecha de orden]"
+                      cachedDataType="date"
+                      cachedName="Fecha de orden"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\Ventas por dia\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Fecha de orden]"
+                      lineageId="Package\Ventas por dia\Sort.Outputs[Sort Output].Columns[Fecha de orden]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Ventas por dia\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[contador de folios]"
+                      dataType="r8"
+                      name="contador de folios" />
+                    <externalMetadataColumn
+                      refId="Package\Ventas por dia\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Fecha de orden]"
+                      dataType="date"
+                      name="Fecha de orden" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Ventas por dia\Excel Destination.Outputs[Excel Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Excel Destination Error Output"
+                  synchronousInputId="Package\Ventas por dia\Excel Destination.Inputs[Excel Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Ventas por dia\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Ventas por dia\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Ventas por dia\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Ventas por dia\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Ventas por dia\Sort"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Ventas por dia\Sort.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Ventas por dia\Sort.Inputs[Sort Input].Columns[contador de folios]"
+                      cachedDataType="ui8"
+                      cachedName="contador de folios"
+                      lineageId="Package\Ventas por dia\Aggregate.Outputs[Aggregate Output 1].Columns[contador de folios]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Ventas por dia\Sort.Inputs[Sort Input].Columns[Fecha de orden]"
+                      cachedDataType="date"
+                      cachedName="Fecha de orden"
+                      lineageId="Package\Ventas por dia\Aggregate.Outputs[Aggregate Output 1].Columns[Fecha de orden]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Ventas por dia\Sort.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Ventas por dia\Sort.Outputs[Sort Output].Columns[contador de folios]"
+                      dataType="ui8"
+                      lineageId="Package\Ventas por dia\Sort.Outputs[Sort Output].Columns[contador de folios]"
+                      name="contador de folios">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Ventas por dia\Aggregate.Outputs[Aggregate Output 1].Columns[contador de folios]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Ventas por dia\Sort.Outputs[Sort Output].Columns[Fecha de orden]"
+                      dataType="date"
+                      lineageId="Package\Ventas por dia\Sort.Outputs[Sort Output].Columns[Fecha de orden]"
+                      name="Fecha de orden"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Ventas por dia\Aggregate.Outputs[Aggregate Output 1].Columns[Fecha de orden]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Ventas por dia.Paths[Aggregate Output 1]"
+              endId="Package\Ventas por dia\Sort.Inputs[Sort Input]"
+              name="Aggregate Output 1"
+              startId="Package\Ventas por dia\Aggregate.Outputs[Aggregate Output 1]" />
+            <path
+              refId="Package\Ventas por dia.Paths[Excel Source Output]"
+              endId="Package\Ventas por dia\Aggregate.Inputs[Aggregate Input 1]"
+              name="Excel Source Output"
+              startId="Package\Ventas por dia\datos de folios y fechas.Outputs[Excel Source Output]" />
+            <path
+              refId="Package\Ventas por dia.Paths[Sort Output]"
+              endId="Package\Ventas por dia\Excel Destination.Inputs[Excel Destination Input]"
+              name="Sort Output"
+              startId="Package\Ventas por dia\Sort.Outputs[Sort Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="145.6,41.6"
+          Id="Package\Ventas por dia"
+          TopLeft="60,60" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Ventas por dia">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="159.2,41.6"
+          Id="Package\Ventas por dia\Excel Destination"
+          TopLeft="297.14286220317,249.600003500546" />
+        <NodeLayout
+          Size="188.8,41.6"
+          Id="Package\Ventas por dia\datos de folios y fechas"
+          TopLeft="40.571429262356,65.4588244474471" />
+        <NodeLayout
+          Size="126.4,41.6"
+          Id="Package\Ventas por dia\Aggregate"
+          TopLeft="314.285719637968,65.458824447447" />
+        <NodeLayout
+          Size="97.6,41.6"
+          Id="Package\Ventas por dia\Sort"
+          TopLeft="330.857148491607,150.494119757682" />
+        <EdgeLayout
+          Id="Package\Ventas por dia.Paths[Sort Output]"
+          TopLeft="378.200005347388,192.094119757682">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,57.5058837428638"
+              Start="0,0"
+              End="0,50.0058837428638">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,50.0058837428638" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Ventas por dia.Paths[Excel Source Output]"
+          TopLeft="229.371429262356,86.258824447447">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="84.9142903756122,0"
+              Start="0,0"
+              End="77.4142903756122,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="77.4142903756122,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Ventas por dia.Paths[Aggregate Output 1]"
+          TopLeft="378.571434064787,107.058824447447">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,43.435295310235"
+              Start="0,0"
+              End="0,35.935295310235">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.935295310235" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Ventas por dia\Excel Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

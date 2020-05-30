@@ -2,15 +2,10 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>trabajo3</Name>
-    <LastWriteTime>2020-05-30T03:52:34.2156482Z</LastWriteTime>
+    <LastWriteTime>2020-05-30T04:50:27.9018936Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
-    <ProjectBuildItemInfo>
-      <Name>Package.dtsx</Name>
-      <LastWriteTime>2020-05-29T03:04:34.9691183Z</LastWriteTime>
-      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
-    </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>suma_total_y_envio.dtsx</Name>
       <LastWriteTime>2020-05-30T01:23:16.7075561Z</LastWriteTime>
@@ -32,13 +27,28 @@
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
-      <Name>VENTAS_DIA.dtsx</Name>
-      <LastWriteTime>2020-05-30T02:32:33.5679386Z</LastWriteTime>
+      <Name>Union_bases_de_dato.dtsx</Name>
+      <LastWriteTime>2020-05-30T04:35:47.6789478Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
-      <Name>Union_bases_de_dato.dtsx</Name>
-      <LastWriteTime>2020-05-30T04:20:55.5980465Z</LastWriteTime>
+      <Name>ETL_CLIENTES.dtsx</Name>
+      <LastWriteTime>2020-05-30T04:44:59.6444556Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>Ventas_por_dia.dtsx</Name>
+      <LastWriteTime>2020-05-30T04:54:18.5940055Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>claves_primarias.dtsx</Name>
+      <LastWriteTime>2020-05-30T04:52:52.4871401Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>VENTAS_DIA_cliente.dtsx</Name>
+      <LastWriteTime>2020-05-30T04:50:27.8699819Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>

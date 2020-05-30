@@ -5,14 +5,14 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="DESKTOP-DAC7EOA"
   DTS:CreatorName="DESKTOP-DAC7EOA\gonza"
-  DTS:DTSID="{181FBE4F-ACAF-4DCD-BAE1-CD915A1EEBE1}"
+  DTS:DTSID="{8BEEEBD5-59B3-4582-939D-DEE4B51EC8B1}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.2000.121"
   DTS:LocaleID="13322"
-  DTS:ObjectName="Package"
+  DTS:ObjectName="ETL_CLIENTES"
   DTS:PackageType="5"
-  DTS:VersionBuild="5"
-  DTS:VersionGUID="{75F246B1-C3B5-46D2-9FCB-4B372DBDD564}">
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{946EBF32-9409-46FC-87D2-954D744E40DC}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -43,7 +43,7 @@
       DTS:ObjectName="Administrador de conexiones con Excel 2">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:\etls.xls;Extended Properties=&quot;Excel 8.0;HDR=YES&quot;;" />
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:\etls.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>

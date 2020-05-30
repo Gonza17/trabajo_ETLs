@@ -1,0 +1,717 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/30/2020 12:45:12 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="PC"
+  DTS:CreatorName="PC\Pc"
+  DTS:DTSID="{FF552D4F-F110-4D4E-9DC8-0B366212A75F}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.121"
+  DTS:LocaleID="3082"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{607F19F8-83D9-4D3C-8583-76D9AA69E66A}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Administrador de conexiones con Excel]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{7DD20D0E-D2B5-4128-8964-C7E97C97DDE7}"
+      DTS:ObjectName="Administrador de conexiones con Excel">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:\etls.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Clave primaria empresa flete"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{5f7b56ce-34cd-442e-9064-48e7f97b178d}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Clave primaria empresa flete"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Clave primaria empresa flete\contamos la cantidad de empresas fleteras"
+              componentClassID="Microsoft.Aggregate"
+              contactInfo="Aggregate;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
+              description="Aggregates data with functions such as Average, Sum, Count, Max, and Min. For example, group data to compute the sum of sales per product or the average visits per day."
+              name="contamos la cantidad de empresas fleteras"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
+                  name="KeyScale"
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence."
+                  name="Keys" />
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the approximate number of distinct values in a column that the aggregation counts distinctly. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no CountDistinctScale value is used."
+                  name="CountDistinctScale"
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the exact number of distinct values in a column that the aggregation counts distinctly. If a CountDistinctScale value is specified, the value in CountDistinctKeys takes precedence."
+                  name="CountDistinctKeys" />
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage by which memory can be extended during the aggregation. Valid values are between 1 and 100."
+                  name="AutoExtendFactor">25</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Clave primaria empresa flete\contamos la cantidad de empresas fleteras.Inputs[Aggregate Input 1]"
+                  name="Aggregate Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Clave primaria empresa flete\contamos la cantidad de empresas fleteras.Inputs[Aggregate Input 1].Columns[Empresa fletera]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Empresa fletera"
+                      lineageId="Package\Clave primaria empresa flete\datos de la empresa fletera.Outputs[Excel Source Output].Columns[Empresa fletera]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Clave primaria empresa flete\contamos la cantidad de empresas fleteras.Outputs[Aggregate Output 1]"
+                  name="Aggregate Output 1">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
+                      name="KeyScale"
+                      typeConverter="KeyScaleType">0</property>
+                    <property
+                      dataType="System.Null"
+                      description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence."
+                      name="Keys" />
+                  </properties>
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Clave primaria empresa flete\contamos la cantidad de empresas fleteras.Outputs[Aggregate Output 1].Columns[clave]"
+                      dataType="ui8"
+                      lineageId="Package\Clave primaria empresa flete\contamos la cantidad de empresas fleteras.Outputs[Aggregate Output 1].Columns[clave]"
+                      name="clave">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Clave primaria empresa flete\0:invalid}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">2</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Clave primaria empresa flete\contamos la cantidad de empresas fleteras.Outputs[Aggregate Output 1].Columns[Empresa fletera]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Clave primaria empresa flete\contamos la cantidad de empresas fleteras.Outputs[Aggregate Output 1].Columns[Empresa fletera]"
+                      name="Empresa fletera">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Clave primaria empresa flete\datos de la empresa fletera.Outputs[Excel Source Output].Columns[Empresa fletera]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Clave primaria empresa flete\datos de la empresa fletera"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="datos de la empresa fletera"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">Hoja1$</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Clave primaria empresa flete\datos de la empresa fletera.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Administrador de conexiones con Excel]"
+                  connectionManagerRefId="Package.ConnectionManagers[Administrador de conexiones con Excel]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Clave primaria empresa flete\datos de la empresa fletera.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Clave primaria empresa flete\datos de la empresa fletera.Outputs[Excel Source Output].Columns[Empresa fletera]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Clave primaria empresa flete\datos de la empresa fletera.Outputs[Excel Source Output].ExternalColumns[Empresa fletera]"
+                      length="255"
+                      lineageId="Package\Clave primaria empresa flete\datos de la empresa fletera.Outputs[Excel Source Output].Columns[Empresa fletera]"
+                      name="Empresa fletera"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Clave primaria empresa flete\datos de la empresa fletera.Outputs[Excel Source Output].ExternalColumns[Folio]"
+                      dataType="r8"
+                      name="Folio" />
+                    <externalMetadataColumn
+                      refId="Package\Clave primaria empresa flete\datos de la empresa fletera.Outputs[Excel Source Output].ExternalColumns[Fecha de orden]"
+                      dataType="date"
+                      name="Fecha de orden" />
+                    <externalMetadataColumn
+                      refId="Package\Clave primaria empresa flete\datos de la empresa fletera.Outputs[Excel Source Output].ExternalColumns[Num# cliente]"
+                      dataType="r8"
+                      name="Num# cliente" />
+                    <externalMetadataColumn
+                      refId="Package\Clave primaria empresa flete\datos de la empresa fletera.Outputs[Excel Source Output].ExternalColumns[Nombre cliente]"
+                      dataType="wstr"
+                      length="255"
+                      name="Nombre cliente" />
+                    <externalMetadataColumn
+                      refId="Package\Clave primaria empresa flete\datos de la empresa fletera.Outputs[Excel Source Output].ExternalColumns[Ciudad]"
+                      dataType="wstr"
+                      length="255"
+                      name="Ciudad" />
+                    <externalMetadataColumn
+                      refId="Package\Clave primaria empresa flete\datos de la empresa fletera.Outputs[Excel Source Output].ExternalColumns[Estado]"
+                      dataType="wstr"
+                      length="255"
+                      name="Estado" />
+                    <externalMetadataColumn
+                      refId="Package\Clave primaria empresa flete\datos de la empresa fletera.Outputs[Excel Source Output].ExternalColumns[Vendedor]"
+                      dataType="wstr"
+                      length="255"
+                      name="Vendedor" />
+                    <externalMetadataColumn
+                      refId="Package\Clave primaria empresa flete\datos de la empresa fletera.Outputs[Excel Source Output].ExternalColumns[Region]"
+                      dataType="wstr"
+                      length="255"
+                      name="Region" />
+                    <externalMetadataColumn
+                      refId="Package\Clave primaria empresa flete\datos de la empresa fletera.Outputs[Excel Source Output].ExternalColumns[Fecha de embarque]"
+                      dataType="date"
+                      name="Fecha de embarque" />
+                    <externalMetadataColumn
+                      refId="Package\Clave primaria empresa flete\datos de la empresa fletera.Outputs[Excel Source Output].ExternalColumns[Empresa fletera]"
+                      dataType="wstr"
+                      length="255"
+                      name="Empresa fletera" />
+                    <externalMetadataColumn
+                      refId="Package\Clave primaria empresa flete\datos de la empresa fletera.Outputs[Excel Source Output].ExternalColumns[Forma de pago]"
+                      dataType="wstr"
+                      length="255"
+                      name="Forma de pago" />
+                    <externalMetadataColumn
+                      refId="Package\Clave primaria empresa flete\datos de la empresa fletera.Outputs[Excel Source Output].ExternalColumns[Nombre del producto]"
+                      dataType="wstr"
+                      length="255"
+                      name="Nombre del producto" />
+                    <externalMetadataColumn
+                      refId="Package\Clave primaria empresa flete\datos de la empresa fletera.Outputs[Excel Source Output].ExternalColumns[Categoría]"
+                      dataType="wstr"
+                      length="255"
+                      name="Categoría" />
+                    <externalMetadataColumn
+                      refId="Package\Clave primaria empresa flete\datos de la empresa fletera.Outputs[Excel Source Output].ExternalColumns[Precio unitario]"
+                      dataType="cy"
+                      name="Precio unitario" />
+                    <externalMetadataColumn
+                      refId="Package\Clave primaria empresa flete\datos de la empresa fletera.Outputs[Excel Source Output].ExternalColumns[Cantidad]"
+                      dataType="r8"
+                      name="Cantidad" />
+                    <externalMetadataColumn
+                      refId="Package\Clave primaria empresa flete\datos de la empresa fletera.Outputs[Excel Source Output].ExternalColumns[Ingresos]"
+                      dataType="cy"
+                      name="Ingresos" />
+                    <externalMetadataColumn
+                      refId="Package\Clave primaria empresa flete\datos de la empresa fletera.Outputs[Excel Source Output].ExternalColumns[Tarifa de envío]"
+                      dataType="cy"
+                      name="Tarifa de envío" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Clave primaria empresa flete\datos de la empresa fletera.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Clave primaria empresa flete\datos de la empresa fletera.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Clave primaria empresa flete\datos de la empresa fletera.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Clave primaria empresa flete\datos de la empresa fletera.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Clave primaria empresa flete\datos de la empresa fletera.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Clave primaria empresa flete\datos de la empresa fletera.Outputs[Excel Source Error Output].Columns[Empresa fletera]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Clave primaria empresa flete\datos de la empresa fletera.Outputs[Excel Source Error Output].Columns[Empresa fletera]"
+                      name="Empresa fletera" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Clave primaria empresa flete\salida a la nueva hoja"
+              componentClassID="Microsoft.ExcelDestination"
+              contactInfo="Excel Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Excel Destination"
+              name="salida a la nueva hoja"
+              usesDispositions="true">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">Clave_primaria_FLETE$</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Clave primaria empresa flete\salida a la nueva hoja.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Administrador de conexiones con Excel]"
+                  connectionManagerRefId="Package.ConnectionManagers[Administrador de conexiones con Excel]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Clave primaria empresa flete\salida a la nueva hoja.Inputs[Excel Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Excel Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Clave primaria empresa flete\salida a la nueva hoja.Inputs[Excel Destination Input].Columns[Empresa fletera]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Empresa fletera"
+                      externalMetadataColumnId="Package\Clave primaria empresa flete\salida a la nueva hoja.Inputs[Excel Destination Input].ExternalColumns[Empresa fletera]"
+                      lineageId="Package\Clave primaria empresa flete\se ordenan de manera ascendente y eliminan duplicados.Outputs[Sort Output].Columns[Empresa fletera]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Clave primaria empresa flete\salida a la nueva hoja.Inputs[Excel Destination Input].ExternalColumns[Empresa fletera]"
+                      dataType="nText"
+                      name="Empresa fletera" />
+                    <externalMetadataColumn
+                      refId="Package\Clave primaria empresa flete\salida a la nueva hoja.Inputs[Excel Destination Input].ExternalColumns[clave]"
+                      dataType="r8"
+                      name="clave" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Clave primaria empresa flete\salida a la nueva hoja.Outputs[Excel Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Excel Destination Error Output"
+                  synchronousInputId="Package\Clave primaria empresa flete\salida a la nueva hoja.Inputs[Excel Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Clave primaria empresa flete\salida a la nueva hoja.Outputs[Excel Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Clave primaria empresa flete\salida a la nueva hoja.Outputs[Excel Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Clave primaria empresa flete\salida a la nueva hoja.Outputs[Excel Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Clave primaria empresa flete\salida a la nueva hoja.Outputs[Excel Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Clave primaria empresa flete\se ordenan de manera ascendente y eliminan duplicados"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="se ordenan de manera ascendente y eliminan duplicados"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Clave primaria empresa flete\se ordenan de manera ascendente y eliminan duplicados.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Clave primaria empresa flete\se ordenan de manera ascendente y eliminan duplicados.Inputs[Sort Input].Columns[Empresa fletera]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Empresa fletera"
+                      lineageId="Package\Clave primaria empresa flete\contamos la cantidad de empresas fleteras.Outputs[Aggregate Output 1].Columns[Empresa fletera]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Clave primaria empresa flete\se ordenan de manera ascendente y eliminan duplicados.Inputs[Sort Input].Columns[clave]"
+                      cachedDataType="ui8"
+                      cachedName="clave"
+                      lineageId="Package\Clave primaria empresa flete\contamos la cantidad de empresas fleteras.Outputs[Aggregate Output 1].Columns[clave]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Clave primaria empresa flete\se ordenan de manera ascendente y eliminan duplicados.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Clave primaria empresa flete\se ordenan de manera ascendente y eliminan duplicados.Outputs[Sort Output].Columns[Empresa fletera]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Clave primaria empresa flete\se ordenan de manera ascendente y eliminan duplicados.Outputs[Sort Output].Columns[Empresa fletera]"
+                      name="Empresa fletera">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Clave primaria empresa flete\contamos la cantidad de empresas fleteras.Outputs[Aggregate Output 1].Columns[Empresa fletera]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Clave primaria empresa flete\se ordenan de manera ascendente y eliminan duplicados.Outputs[Sort Output].Columns[clave]"
+                      dataType="ui8"
+                      lineageId="Package\Clave primaria empresa flete\se ordenan de manera ascendente y eliminan duplicados.Outputs[Sort Output].Columns[clave]"
+                      name="clave"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Clave primaria empresa flete\contamos la cantidad de empresas fleteras.Outputs[Aggregate Output 1].Columns[clave]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Clave primaria empresa flete.Paths[Aggregate Output 1]"
+              endId="Package\Clave primaria empresa flete\se ordenan de manera ascendente y eliminan duplicados.Inputs[Sort Input]"
+              name="Aggregate Output 1"
+              startId="Package\Clave primaria empresa flete\contamos la cantidad de empresas fleteras.Outputs[Aggregate Output 1]" />
+            <path
+              refId="Package\Clave primaria empresa flete.Paths[Excel Source Output]"
+              endId="Package\Clave primaria empresa flete\contamos la cantidad de empresas fleteras.Inputs[Aggregate Input 1]"
+              name="Excel Source Output"
+              startId="Package\Clave primaria empresa flete\datos de la empresa fletera.Outputs[Excel Source Output]" />
+            <path
+              refId="Package\Clave primaria empresa flete.Paths[Sort Output]"
+              endId="Package\Clave primaria empresa flete\salida a la nueva hoja.Inputs[Excel Destination Input]"
+              name="Sort Output"
+              startId="Package\Clave primaria empresa flete\se ordenan de manera ascendente y eliminan duplicados.Outputs[Sort Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="211.2,41.6"
+          Id="Package\Clave primaria empresa flete"
+          TopLeft="60.6666666401757,60" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Clave primaria empresa flete">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="180.8,41.6"
+          Id="Package\Clave primaria empresa flete\salida a la nueva hoja"
+          TopLeft="371.428577753963,211.058826489432" />
+        <NodeLayout
+          Size="345.6,43.2"
+          Id="Package\Clave primaria empresa flete\se ordenan de manera ascendente y eliminan duplicados"
+          TopLeft="301.142862271289,131.529413609356" />
+        <NodeLayout
+          Size="207.2,41.6"
+          Id="Package\Clave primaria empresa flete\datos de la empresa fletera"
+          TopLeft="42.2857150058358,42.8235300123485" />
+        <NodeLayout
+          Size="280,43.2"
+          Id="Package\Clave primaria empresa flete\contamos la cantidad de empresas fleteras"
+          TopLeft="330.514289966895,47.1058830135835" />
+        <EdgeLayout
+          Id="Package\Clave primaria empresa flete.Paths[Excel Source Output]"
+          TopLeft="249.485715005836,66.164706512966">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="81.0285749610592,0"
+              Start="0,0"
+              End="73.5285749610592,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="73.5285749610592,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Clave primaria empresa flete.Paths[Aggregate Output 1]"
+          TopLeft="472.228576119092,90.3058830135835">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41.2235305957727"
+              Start="0,0"
+              End="0,33.7235305957727">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.7235305957727" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Clave primaria empresa flete.Paths[Sort Output]"
+          TopLeft="473.942862271289,174.729413609356">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-12.1142845173268,36.3294128800759"
+              Start="0,0"
+              End="-12.1142845173268,28.8294128800759">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.1647064400379" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.1647064400379"
+                    Point2="0,18.1647064400379"
+                    Point3="-4,18.1647064400379" />
+                  <mssgle:LineSegment
+                    End="-8.11428451732684,18.1647064400379" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-8.11428451732684,18.1647064400379"
+                    Point2="-12.1142845173268,18.1647064400379"
+                    Point3="-12.1142845173268,22.1647064400379" />
+                  <mssgle:LineSegment
+                    End="-12.1142845173268,28.8294128800759" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Clave primaria empresa flete\salida a la nueva hoja">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Clave primaria empresa flete\datos de la empresa fletera">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
